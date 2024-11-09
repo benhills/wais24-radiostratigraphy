@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: header
+chapters:
+- file: introduction
+- file: background
+- file: multisquint
+- file: application
+- file: discussion
+- file: cloudcompute
+- file: bibliography
