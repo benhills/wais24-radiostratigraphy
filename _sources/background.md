@@ -62,8 +62,8 @@ plt.subplot(211)
 plt.plot(a,ref_r)
 plt.ylabel('range')
 plt.subplot(212)
-plt.plot(a,np.angle(ref_phi));
-plt.ylabel('reference phase')
+plt.plot(a,np.angle(ref_phi))
+plt.ylabel('reference phase');
 ```
 
 ## ''Layer Optimized'' Focusing
@@ -83,8 +83,8 @@ plt.subplot(211)
 plt.plot(a,ref_r)
 plt.ylabel('range')
 plt.subplot(212)
-plt.plot(a,np.angle(ref_phi));
-plt.ylabel('reference phase')
+plt.plot(a,np.angle(ref_phi))
+plt.ylabel('reference phase');
 ```
 
 
