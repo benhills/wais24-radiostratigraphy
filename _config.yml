@@ -3,6 +3,7 @@
 
 title: Re'focusing' on Radiostratigraphy
 author: Benjamin Hills and coauthors
+copyright: "2025"  # Copyright year to be placed in the footer
   #logo: featured_image.png
 
 # Force re-execution of notebooks on each build.
