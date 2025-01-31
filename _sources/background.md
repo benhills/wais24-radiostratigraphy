@@ -24,7 +24,7 @@ We then use the derived range function to calculate a matched filter to be corre
 This section gives a high-level background on sar focusing and compression in the along-track direction (sometimes called azimuth compression in conventional SAR textbooks {cite}`Cumming2005`). Readers with a background in SAR methods should skip forward to {doc}`multisquint` where we define and apply our alternative algorithm suited for dipping englacial layers.
 ```
 
-## Radar sounding geometry
+### Radar sounding geometry
 
 Considering radar-wave propagation through a single media (i.e., for subaerial SAR applications), the propagation path from the radar antenna to target is a direct ray. That is, for a given along-track location ($x$; commonly referred to as the azimuth for satellite platforms) the range is known through the Pythagorean theorem
 ```{math}
@@ -139,7 +139,7 @@ plt.ylabel('Range offset (m)')
 plt.ylim(5,-1);
 ```
 
-## SAR focusing
+### SAR focusing
 
 Using the range equations given in the previous section (i.e. equations {eq}`SAR-range-standard` or {eq}`SAR-range-raybend`), we define a phase offset to coherently align waveforms within a synthetic aperture,
 ```{math}
@@ -183,6 +183,6 @@ plt.ylabel('Refeference waveform');
 To focus the image, a matched filter {eq}`matched-filter` is calculated for every range bin, $r_0$, and convolved with the radar measurements, $E$,
 ```{math}
 :label: SAR-focusing
-P_k = \sum_{j=1}^N E_{j,k}(r_{j,k},x_j) e^{-i\phi_j}
+P_{jk} = \sum_{j=1}^N E_{jk}(r_{jk},x_j) e^{-i\phi_j}
 ```
-where $N$ is the number of along-track traces in the synthetic aperture.
+where $j$ is the along-track index, $k$ the range index, and $N$ the number of along-track pixels included in the synthetic aperture.

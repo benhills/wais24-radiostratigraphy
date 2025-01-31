@@ -32,7 +32,7 @@ name: multi-squint-movie
 Image processed across a range of squint angles.
 ```
 
-## Ideal squint angle from Doppler spectra
+### Ideal squint angle from Doppler spectra
 
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
 in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
@@ -54,9 +54,9 @@ f_{\eta_c} = \frac{2 V_r \sin \theta}{\lambda}
 $$
 
 
-Doppler frequency is related to the derivative of range with respect to slow time
+Doppler frequency shift is related to the derivative of phase with respect to slow time
 $$
-f = -\frac{2}{\lambda} \frac{\partial r}{\partial \tau}
+\Delta f = \frac{1}{2\pi}\frac{\partial \phi}{\partial \tau} = -\frac{2}{\lambda} \frac{\partial r}{\partial \tau}
 $$
 or the Doppler wavenumber related to the along-track position
 $$
@@ -68,7 +68,7 @@ $$
 $$
 which is approximately
 $$
-f_{\eta_c} = \frac{2}{\lambda} (\sin \theta + n\sin \theta_{ice})
+f_{\eta_c} = \frac{2}{\lambda} \sin \theta
 $$
 
 
@@ -91,7 +91,7 @@ $$
 
 The point at which this 
 
-## Compiling an multisquint mosaic
+### Compiling an multisquint mosaic
 
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
 in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
