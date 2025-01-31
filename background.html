@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,31 +15,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -48,25 +49,21 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'background';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Multi-Squint Focusing" href="multisquint.html" />
+    <link rel="next" title="Multi-squint focusing" href="multisquint.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -77,19 +74,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +112,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,6 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="header.html">
@@ -139,10 +151,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Re'focusing' on Radiostratigraphy</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -155,10 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multisquint.html">Multi-Squint Focusing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="application.html">Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="discussion.html">Discussion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloudcompute.html">Appendix: Cloud-computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisquint.html">Multi-squint focusing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
 </ul>
 
@@ -175,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -184,14 +205,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -313,26 +334,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -353,8 +376,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-focusing">Standard Focusing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-optimized-focusing">‘’Layer Optimized’’ Focusing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-sounding-geometry">Radar sounding geometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sar-focusing">SAR focusing</a></li>
 </ul>
             </nav>
         </div>
@@ -364,97 +387,187 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="background">
 <h1>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h1>
-<p>Individual radar reflections are rarely used as a final data product.
-Instead, synthetic aperture radar (SAR) focusing is used to improve the spatial resolution by coherently stacking traces within a prescribed ‘’aperture’’ (number of neighboring traces).
-The most common SAR focusing algorithms (e.g., the ‘’standard’’ product from the Center for Remote Sensing and Integrated Systems, CReSIS) are optimized for diffuse reflectors, assuming that the same feature can create an observable echo from multiple directions.
-Then, data are coherently stacked along a hyperbola to ‘’focus’’ the data (commonly done in the frequency domain).
-Focused products work well for the bed echo which is rough at the radar wavelength and therefore diffuse.
-However, the specular englacial echoes are not always well resolved in these products.
-In fact, the hyperbolic stacking can create destructive interference in dipping layers—in some cases causing them to vanish entirely.
-As an alternative, <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Davide Castelletti, Dustin M Schroeder, Elisa Mantelli, and Andrew Hilger. Layer optimized SAR processing and slope estimation in radar sounder data. Journal of Glaciology, 65(254):983–988, 2019. doi:10.1017/jog.2019.72.">CSMH19</a>]</span> proposed a ‘’layer-optimized’’’ SAR (LOSAR) algorithm which stacks along a linear dip angle within the synthetic aperture.
-The authors demonstrated the algorithm with a single dataset from the British Antarctic Survey (BAS), but it is applicable to any phase-coherent profiling radar sounder.</p>
-<p>LOSAR images have better-resolved radiostratigraphy compared to prior data products.
-The improved result can be used for better interpretations of individual layers of interest and to generate more precise glaciological <span id="id2">[]</span><span id="id3">[]</span><span id="id4">[<a class="reference internal" href="bibliography.html#id7" title="H. Conway, G. Catania, C. F. Raymond, A. M. Gades, T. A. Scambos, and H. Engelhardt. Switch of flow direction in an antarctic ice stream. Nature, 419(6906):465–467, 2002. doi:10.1038/nature01081.">CCR+02</a>]</span> and paleoclimatological <span id="id5">[]</span><span id="id6">[<a class="reference internal" href="bibliography.html#id5" title="Marie Cavitte, Duncan Young, Robert Mulvaney, Catherine Ritz, Jamin Greenbaum, Gregory Ng, Scott Kempf, Enrica Quartini, Gail Muldoon, John Paden, Massimo Frezzotti, Jason Roberts, Carly Tozer, Dustin Schroeder, and Donald Blankenship. A detailed radiostratigraphic data set for the central East Antarctic Plateau spanning the last half million years. Earth System Science Data Discussions, pages 1–27, 2021.">CYM+21</a>]</span><span id="id7">[<a class="reference internal" href="bibliography.html#id11" title="J. A. Bodart, R. G. Bingham, D. W. Ashmore, N. B. Karlsson, A. S. Hein, and D. G. Vaughan. Age-Depth Stratigraphy of Pine Island Glacier Inferred From Airborne Radar and Ice-Core Chronology. Journal of Geophysical Research: Earth Surface, 126(4):1–20, 2021. doi:10.1029/2020JF005927.">BBA+21</a>]</span> insight.
-Importantly, there is also a secondary output from the LOSAR algorithm: the dip angle of the layer itself, chosen as the Doppler frequency/wavenumber with the greatest power.
-Since the layer dip can be estimated algorithmically, the shapes of layers can be considered without any need for manual interpretation of individual reflection horizons (as has been done in past work; e.g., <span id="id8">[]</span>).
-Similar work has done the same layer-dip estimation, even for radars which are not phase coherent, through image processing techniques <span id="id9">[]</span><span id="id10">[]</span><span id="id11">[]</span>, but with less capability to recover the stratigraphy.
-High fidelity, algorithmically acquired layer dips across full survey campaigns can be used to guide phase-based layer tracking <span id="id12">[]</span>, or as we propose here to interpret the ice dynamics and ice-sheet history directly.</p>
-<p>In order to
-In <a class="reference internal" href="multisquint.html"><span class="doc">Multi-Squint Focusing</span></a> we explore an alternative.</p>
+<!--- SAR focusing -->
+<p>As a radar instrument moves through a synthetic aperture, the range from instrument and target changes between acquisitions.
+Hence, waveform stacking within a SAR algorithm requires a range (or phase) correction if it is to coherently “focus” the data, improving both the signal-to-noise ratio and the spatial resolution <span id="id1">[<a class="reference internal" href="bibliography.html#id28" title="Ian G Cumming and Frank Hay-chee Wong. Digital processing of synthetic aperture radar data : algorithms and implementation. Artech House, Boston SE - xxviii, 625 pages : illustrations ; 27 cm + 1 CD-ROM (4 3/4 in.)., 2005. ISBN 1580530583; 9781580530583. doi:LK - https://worldcat.org/title/56805179.">CW05</a>]</span>.
+Below, we define a radar sounding geometry and use it to derive a range correction, first for the conventional case of a subaerial target (e.g., for spaceborne SAR applications), then for RES through two media (e.g., air and ice for an airborne survey of a glacier or ice sheet).
+We then use the derived range function to calculate a matched filter to be correlated with the measured radar signal, much like the range-matched filter used for pulse compression but in the along-track dimension.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Here is a note</p>
+<p>This section gives a high-level background on sar focusing and compression in the along-track direction (sometimes called azimuth compression in conventional SAR textbooks <span id="id2">[<a class="reference internal" href="bibliography.html#id28" title="Ian G Cumming and Frank Hay-chee Wong. Digital processing of synthetic aperture radar data : algorithms and implementation. Artech House, Boston SE - xxviii, 625 pages : illustrations ; 27 cm + 1 CD-ROM (4 3/4 in.)., 2005. ISBN 1580530583; 9781580530583. doi:LK - https://worldcat.org/title/56805179.">CW05</a>]</span>). Readers with a background in SAR methods should skip forward to <a class="reference internal" href="multisquint.html"><span class="doc">Multi-squint focusing</span></a> where we define and apply our alternative algorithm suited for dipping englacial layers.</p>
 </div>
-<section id="standard-focusing">
-<h2>Standard Focusing<a class="headerlink" href="#standard-focusing" title="Permalink to this heading">#</a></h2>
-<p>Text here</p>
-<div class="math notranslate nohighlight">
-\[
-e=mc^2
-\]</div>
+<section id="radar-sounding-geometry">
+<h2>Radar sounding geometry<a class="headerlink" href="#radar-sounding-geometry" title="Permalink to this heading">#</a></h2>
+<p>Considering radar-wave propagation through a single media (i.e., for subaerial SAR applications), the propagation path from the radar antenna to target is a direct ray. That is, for a given along-track location (<span class="math notranslate nohighlight">\(x\)</span>; commonly referred to as the azimuth for satellite platforms) the range is known through the Pythagorean theorem</p>
+<div class="math notranslate nohighlight" id="equation-sar-range-standard">
+<span class="eqno">(1)<a class="headerlink" href="#equation-sar-range-standard" title="Permalink to this equation">#</a></span>\[r = \sqrt{r_0^2+(x-x_0)^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r_0\)</span> and <span class="math notranslate nohighlight">\(x_0\)</span> are the reference range and along-track distance, respectively.
+Here, we will take those reference positions at the closest approach position of the instrument platform (i.e. directly over the target).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">1.</span>                 <span class="c1"># radar wavelength</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mf">100.</span>                    <span class="c1"># depth of feature</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>     <span class="c1"># along-track distance </span>
-<span class="n">ref_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># distance to target as platform passes by</span>
-<span class="n">ref_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ref_r</span><span class="o">/</span><span class="n">Lambda</span><span class="p">)</span> <span class="c1"># reference phase history</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">1000.</span>     <span class="c1"># range to target at closest approach (assume x0 is 0)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">.1</span>        <span class="c1"># x step</span>
+<span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">100.</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span> <span class="c1"># along-track distances within the synthetic aperture</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r0</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Xs</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>     <span class="c1"># range to target as platform passes by</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">ref_r</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;range&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">ref_phi</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;reference phase&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the range-offset function</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="n">r0</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Range offset (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Along-track distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9f4618d9ba3b19a3f7f7941d9b97cb46947578f9ff5dfe9d4ef6d4f049d6ce52.png" src="_images/9f4618d9ba3b19a3f7f7941d9b97cb46947578f9ff5dfe9d4ef6d4f049d6ce52.png" />
+<img alt="_images/b966af1481153c9c02aed8319e98985e4f4eb7eefc9df4afa5e671a776a5c0e4.png" src="_images/b966af1481153c9c02aed8319e98985e4f4eb7eefc9df4afa5e671a776a5c0e4.png" />
+</div>
+</div>
+<p>In RES through two media, equation <a class="reference internal" href="#equation-sar-range-standard">(1)</a> is complicated slightly by refraction at the air-ice interface.
+Reframing in terms of the vertical coordinate, it can be shown by the survey geometry (<a class="reference internal" href="#sar-geometry"><span class="std std-numref">Fig. 2</span></a>) that</p>
+<div class="math notranslate nohighlight" id="equation-sar-range-raybend">
+<span class="eqno">(2)<a class="headerlink" href="#equation-sar-range-raybend" title="Permalink to this equation">#</a></span>\[r = r_{air} + r_{ice} = \frac{h}{\cos\theta} + \frac{d}{\cos\theta_{ice}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span>, the height of the instrument platform above the ice surface, and <span class="math notranslate nohighlight">\(d\)</span>, the depth of the target below the ice surface, are known and assumed to be fixed within a given synthetic aperture.
+If the <span class="math notranslate nohighlight">\(h\)</span> is not fixed due to motion of the platform, it is assumed that motion can be compensated.</p>
+<figure class="align-default" id="sar-geometry">
+<a class="reference internal image-reference" href="_images/SAR_geometry.png"><img alt="_images/SAR_geometry.png" src="_images/SAR_geometry.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Illustration of SAR geometry for wave propagation through two media and refraction at their interface.</span><a class="headerlink" href="#sar-geometry" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are two additional unknown variables which must be related to <span class="math notranslate nohighlight">\(x\)</span> in order to build an expected range function for the synthetic aperture, <span class="math notranslate nohighlight">\(r(x)\)</span>, similar to equation <a class="reference internal" href="#equation-sar-range-standard">(1)</a>.
+Those are the squint angle, <span class="math notranslate nohighlight">\(\theta\)</span>, and its associated angle after ray bending into the ice, <span class="math notranslate nohighlight">\(\theta_{ice}\)</span>.
+First, the two propagation angles are related through Snell’s law,</p>
+<div class="math notranslate nohighlight" id="equation-snells-law">
+<span class="eqno">(3)<a class="headerlink" href="#equation-snells-law" title="Permalink to this equation">#</a></span>\[\frac{\sin\theta_1}{\sin\theta_2} = \frac{n_2}{n_1}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n=\sqrt{\epsilon}\)</span> is the refractive index and <span class="math notranslate nohighlight">\(\epsilon\)</span> the permittivity.
+When the first material is air, <span class="math notranslate nohighlight">\(n_1\approx1\)</span>, and equation <a class="reference internal" href="#equation-snells-law">(3)</a> reduces to</p>
+<div class="math notranslate nohighlight" id="equation-snells-law-2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-snells-law-2" title="Permalink to this equation">#</a></span>\[\sin\theta = n\sin\theta_{ice}\]</div>
+<p>now with the only <span class="math notranslate nohighlight">\(n\)</span> being that for the second medium (ice; <span class="math notranslate nohighlight">\(n\approx1.77\)</span>).
+Second, the propagation angle can be related to the range from instrument to target by assuming that the squint angle is relatively small (<span class="math notranslate nohighlight">\(\tan\theta=n\tan\theta_{ice}\)</span>)</p>
+<div class="math notranslate nohighlight" id="equation-angle-approximation">
+<span class="eqno">(5)<a class="headerlink" href="#equation-angle-approximation" title="Permalink to this equation">#</a></span>\[\tan\theta = \frac{x-x_0}{h+d/n}\]</div>
+<p>Then, substituting equations <a class="reference internal" href="#equation-snells-law-2">(4)</a> and <a class="reference internal" href="#equation-angle-approximation">(5)</a> into equation <a class="reference internal" href="#equation-sar-range-raybend">(2)</a> gives the relative range as a function of position within the synthetic aperture,</p>
+<div class="math notranslate nohighlight" id="equation-sar-range-raybend-full">
+<span class="eqno">(6)<a class="headerlink" href="#equation-sar-range-raybend-full" title="Permalink to this equation">#</a></span>\[r = \frac{h}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{h+d/n} \right ) \right )} 
++   \frac{d}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{nh+d} \right ) \right ) }\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code cells below use functions from external python scripts. See the github repository (<a class="reference external" href="https://github.com/benhills/wais24-radiostratigraphy">here</a>) to access those scripts.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sar_geometry</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># height above ice surface</span>
+
+<span class="c1"># for a given squint angle (theta) find the depth in ice </span>
+<span class="c1"># and along-track distance (x0) from center of aperture to target</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span> <span class="c1"># divide by zero gives an error so give a small number</span>
+<span class="n">d</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">get_depth</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="c1"># range offset within aperture - air only so simple geometry</span>
+<span class="n">R1_air</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r0</span><span class="o">**</span><span class="mf">2.</span><span class="o">+</span><span class="p">(</span><span class="n">Xs</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span> <span class="o">-</span> <span class="n">r0</span>
+<span class="c1"># range offset within aperture - with ice so ray bending</span>
+<span class="n">R1_ice</span> <span class="o">=</span> <span class="n">SAR_aperture_raybend</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># again with non-zero squint</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span>
+<span class="n">d</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">get_depth</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="c1"># range offset within aperture - air only so simple geometry</span>
+<span class="n">R2_air</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">h</span><span class="o">+</span><span class="n">d</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="o">+</span><span class="p">(</span><span class="n">Xs</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span> <span class="o">-</span> <span class="n">h</span> <span class="o">-</span> <span class="n">d</span>
+<span class="c1"># range offset within aperture - with ice so ray bending</span>
+<span class="n">R2_ice</span> <span class="o">=</span> <span class="n">SAR_aperture_raybend</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the range-offset function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">R1_air</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nadir Air Only&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">R1_ice</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nadir Air/Ice&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">R2_air</span><span class="p">,</span><span class="s1">&#39;indianred&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Squinted Air Only&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">R2_ice</span><span class="p">,</span><span class="s1">&#39;indianred&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Squinted Air/Ice&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Along-track distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Range offset (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aba217c59662f3442fa29a1305f30430180c0c7594e20cbf583f5a2c1a1d8f92.png" src="_images/aba217c59662f3442fa29a1305f30430180c0c7594e20cbf583f5a2c1a1d8f92.png" />
 </div>
 </div>
 </section>
-<section id="layer-optimized-focusing">
-<h2>‘’Layer Optimized’’ Focusing<a class="headerlink" href="#layer-optimized-focusing" title="Permalink to this heading">#</a></h2>
+<section id="sar-focusing">
+<h2>SAR focusing<a class="headerlink" href="#sar-focusing" title="Permalink to this heading">#</a></h2>
+<p>Using the range equations given in the previous section (i.e. equations <a class="reference internal" href="#equation-sar-range-standard">(1)</a> or <a class="reference internal" href="#equation-sar-range-raybend">(2)</a>), we define a phase offset to coherently align waveforms within a synthetic aperture,</p>
+<div class="math notranslate nohighlight" id="equation-range-to-phase">
+<span class="eqno">(7)<a class="headerlink" href="#equation-range-to-phase" title="Permalink to this equation">#</a></span>\[\phi = \frac{4 \pi f_\mathrm{c}}{c} r\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_\mathrm{c}\)</span> is the instrument center frequency, and <span class="math notranslate nohighlight">\(c\)</span> is the vacuum wave speed.
+This reference phase is converted to a complex number</p>
+<div class="math notranslate nohighlight" id="equation-matched-filter">
+<span class="eqno">(8)<a class="headerlink" href="#equation-matched-filter" title="Permalink to this equation">#</a></span>\[C_j = e^{-i\phi}\]</div>
+<p>which is used as a matched filter against the measured radar signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lambda</span> <span class="o">=</span> <span class="mf">1.</span>                 <span class="c1"># radar wavelength</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span>      <span class="c1"># dip angle</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>     <span class="c1"># along-track distance </span>
-<span class="n">ref_r</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>  <span class="c1"># distance to target as platform passes by</span>
-<span class="n">ref_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ref_r</span><span class="o">/</span><span class="n">Lambda</span><span class="p">)</span> <span class="c1"># reference phase history</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">ref_r</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;range&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">ref_phi</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;reference phase&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import functions from external scripts (see the note above)</span>
+<span class="kn">from</span> <span class="nn">sar_functions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">supplemental</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Calculate and plot the matched filter for no squint</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mf">2.5</span><span class="p">))</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">matched_filter</span><span class="p">(</span><span class="n">r2p</span><span class="p">(</span><span class="n">R1_air</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">matched_filter</span><span class="p">(</span><span class="n">r2p</span><span class="p">(</span><span class="n">R1_ice</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Along-track distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reference waveform&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/252b9ed7fa9711f4d9065db9ca044e7a107050be1c2dc28bf3f980cf8d3b5d62.png" src="_images/252b9ed7fa9711f4d9065db9ca044e7a107050be1c2dc28bf3f980cf8d3b5d62.png" />
+<img alt="_images/7bf9bd173fdf899a69f4ee1cc46b5dc05795b5e31703ec40ad2536ba3515f478.png" src="_images/7bf9bd173fdf899a69f4ee1cc46b5dc05795b5e31703ec40ad2536ba3515f478.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate and plot the matched filter with squint</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mf">2.5</span><span class="p">))</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">matched_filter</span><span class="p">(</span><span class="n">r2p</span><span class="p">(</span><span class="n">R2_air</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;indianred&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">matched_filter</span><span class="p">(</span><span class="n">r2p</span><span class="p">(</span><span class="n">R2_ice</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;indianred&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Along-track distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Refeference waveform&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f565a50247c67b64bbcdf85a4cb7f0cbf488a1a1facb0cb145d3132ef938c137.png" src="_images/f565a50247c67b64bbcdf85a4cb7f0cbf488a1a1facb0cb145d3132ef938c137.png" />
+</div>
+</div>
+<p>To focus the image, a matched filter <a class="reference internal" href="#equation-matched-filter">(8)</a> is calculated for every range bin, <span class="math notranslate nohighlight">\(r_0\)</span>, and convolved with the radar measurements, <span class="math notranslate nohighlight">\(E\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-sar-focusing">
+<span class="eqno">(9)<a class="headerlink" href="#equation-sar-focusing" title="Permalink to this equation">#</a></span>\[P_k = \sum_{j=1}^N E_{j,k}(r_{j,k},x_j) e^{-i\phi_j}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of along-track traces in the synthetic aperture.</p>
 </section>
 </section>
 
@@ -483,11 +596,10 @@ e=mc^2
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="introduction.html"
@@ -503,14 +615,11 @@ e=mc^2
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multi-Squint Focusing</p>
+        <p class="prev-next-title">Multi-squint focusing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -519,14 +628,15 @@ e=mc^2
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-focusing">Standard Focusing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-optimized-focusing">‘’Layer Optimized’’ Focusing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-sounding-geometry">Radar sounding geometry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sar-focusing">SAR focusing</a></li>
 </ul>
   </nav></div>
 
@@ -548,9 +658,10 @@ By Benjamin Hills and coauthors
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -574,8 +685,8 @@ By Benjamin Hills and coauthors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

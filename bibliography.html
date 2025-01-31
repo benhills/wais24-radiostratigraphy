@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,31 +15,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -48,23 +49,19 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bibliography';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Appendix: Cloud-computing" href="cloudcompute.html" />
+    <link rel="prev" title="Multi-Squint Focusing" href="multisquint.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -74,19 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -108,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -128,6 +137,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="header.html">
@@ -136,10 +148,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">Re'focusing' on Radiostratigraphy</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -153,9 +177,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multisquint.html">Multi-Squint Focusing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="application.html">Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="discussion.html">Discussion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloudcompute.html">Appendix: Cloud-computing</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">References</a></li>
 </ul>
 
@@ -172,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -181,14 +202,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -310,20 +331,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -350,70 +373,118 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
 <div class="docutils container" id="id1">
-<div class="citation" id="id16" role="doc-biblioentry">
+<div class="citation" id="id13" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>BFC+11<span class="fn-bracket">]</span></span>
 <p>Robin E. Bell, Fausto Ferraccioli, Timothy T. Creyts, David Braaten, Hugh Corr, Indrani Das, Detlef Damaske, Nicholas Frearson, Thomas Jordan, Kathryn Rose, Michael Studinger, and Michael Wolovick. Widespread persistent thickening of the east antarctic ice sheet by freezing from the base. <em>Science</em>, 331(6024):1592–1595, 2011. <a class="reference external" href="https://doi.org/10.1126/science.1200109">doi:10.1126/science.1200109</a>.</p>
 </div>
-<div class="citation" id="id6" role="doc-biblioentry">
+<div class="citation" id="id8" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>BBC+24<span class="fn-bracket">]</span></span>
 <p>Robert G Bingham, Julien A Bodart, Marie G P Cavitte, Ailsa Chung, and Rebecca J Sanderson. Review Article Antarctica’s internal architecture : Towards a radiostratigraphically ‐ informed age – depth model of the Antarctic ice sheets. <em>The Cryosphere Discussions</em>, 2024.</p>
 </div>
-<div class="citation" id="id11" role="doc-biblioentry">
+<div class="citation" id="id27" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>BBA+21<span class="fn-bracket">]</span></span>
 <p>J. A. Bodart, R. G. Bingham, D. W. Ashmore, N. B. Karlsson, A. S. Hein, and D. G. Vaughan. Age-Depth Stratigraphy of Pine Island Glacier Inferred From Airborne Radar and Ice-Core Chronology. <em>Journal of Geophysical Research: Earth Surface</em>, 126(4):1–20, 2021. <a class="reference external" href="https://doi.org/10.1029/2020JF005927">doi:10.1029/2020JF005927</a>.</p>
 </div>
-<div class="citation" id="id2" role="doc-biblioentry">
+<div class="citation" id="id20" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>CSMH19<span class="fn-bracket">]</span></span>
 <p>Davide Castelletti, Dustin M Schroeder, Elisa Mantelli, and Andrew Hilger. Layer optimized SAR processing and slope estimation in radar sounder data. <em>Journal of Glaciology</em>, 65(254):983–988, 2019. <a class="reference external" href="https://doi.org/10.1017/jog.2019.72">doi:10.1017/jog.2019.72</a>.</p>
 </div>
-<div class="citation" id="id5" role="doc-biblioentry">
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CSCR06<span class="fn-bracket">]</span></span>
+<p>G. A. Catania, T. A. Scambos, H. Conway, and C. F. Raymond. Sequential stagnation of Kamb Ice Stream, West Antarctica. <em>Geophysical Research Letters</em>, 33(14):2–5, 2006. <a class="reference external" href="https://doi.org/10.1029/2006GL026430">doi:10.1029/2006GL026430</a>.</p>
+</div>
+<div class="citation" id="id7" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>CYM+21<span class="fn-bracket">]</span></span>
 <p>Marie Cavitte, Duncan Young, Robert Mulvaney, Catherine Ritz, Jamin Greenbaum, Gregory Ng, Scott Kempf, Enrica Quartini, Gail Muldoon, John Paden, Massimo Frezzotti, Jason Roberts, Carly Tozer, Dustin Schroeder, and Donald Blankenship. A detailed radiostratigraphic data set for the central East Antarctic Plateau spanning the last half million years. <em>Earth System Science Data Discussions</em>, pages 1–27, 2021.</p>
 </div>
-<div class="citation" id="id7" role="doc-biblioentry">
+<div class="citation" id="id14" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>CCR+02<span class="fn-bracket">]</span></span>
 <p>H. Conway, G. Catania, C. F. Raymond, A. M. Gades, T. A. Scambos, and H. Engelhardt. Switch of flow direction in an antarctic ice stream. <em>Nature</em>, 419(6906):465–467, 2002. <a class="reference external" href="https://doi.org/10.1038/nature01081">doi:10.1038/nature01081</a>.</p>
 </div>
+<div class="citation" id="id28" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CW05<span class="fn-bracket">]</span></span>
+<p>Ian G Cumming and Frank Hay-chee Wong. <em>Digital processing of synthetic aperture radar data : algorithms and implementation</em>. Artech House, Boston SE - xxviii, 625 pages : illustrations ; 27 cm + 1 CD-ROM (4 3/4 in.)., 2005. ISBN 1580530583; 9781580530583. <a class="reference external" href="https://doi.org/LK - https://worldcat.org/title/56805179">doi:LK - https://worldcat.org/title/56805179</a>.</p>
+</div>
 <div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>EWNM03<span class="fn-bracket">]</span></span>
+<p>Olaf Eisen, Frank Wilhelms, Uwe Nixdorf, and Heinrich Miller. Revealing the nature of radar reflections in ice: DEP-based FDTD forward modeling. <em>Geophysical Research Letters</em>, 2003. URL: <a class="reference external" href="http://doi.wiley.com/10.1029/2002GL016403">http://doi.wiley.com/10.1029/2002GL016403</a>, <a class="reference external" href="https://doi.org/10.1029/2002GL016403">doi:10.1029/2002GL016403</a>.</p>
+</div>
+<div class="citation" id="id23" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Fer19<span class="fn-bracket">]</span></span>
+<p>A. Ferro. Squinted SAR focusing for improving automatic radar sounder data analysis and enhancement. <em>International Journal of Remote Sensing</em>, 40(12):4762–4786, 2019. URL: <a class="reference external" href="https://doi.org/10.1080/01431161.2019.1573339">https://doi.org/10.1080/01431161.2019.1573339</a>, <a class="reference external" href="https://doi.org/10.1080/01431161.2019.1573339">doi:10.1080/01431161.2019.1573339</a>.</p>
+</div>
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>FJB+22<span class="fn-bracket">]</span></span>
+<p>Steven Franke, Daniela Jansen, Tobias Binder, John D. Paden, Nils Dörr, Tamara A. Gerber, Heinrich Miller, Dorthe Dahl-Jensen, Veit Helm, Daniel Steinhage, Ilka Weikusat, Frank Wilhelms, and Olaf Eisen. Airborne ultra-wideband radar sounding over the shear margins and along flow lines at the onset region of the Northeast Greenland Ice Stream. <em>Earth System Science Data</em>, 14(2):763–779, 2022. <a class="reference external" href="https://doi.org/10.5194/essd-14-763-2022">doi:10.5194/essd-14-763-2022</a>.</p>
+</div>
+<div class="citation" id="id3" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>FremandFB+23<span class="fn-bracket">]</span></span>
 <p>Alice C. Frémand, Peter Fretwell, Julien A. Bodart, Hamish D. Pritchard, Alan Aitken, Jonathan L. Bamber, Robin Bell, Cesidio Bianchi, Robert G. Bingham, Donald D. Blankenship, Gino Casassa, Ginny Catania, Knut Christianson, Howard Conway, Hugh F.J. Corr, Xiangbin Cui, Detlef Damaske, Volkmar Damm, Reinhard Drews, Graeme Eagles, Olaf Eisen, Hannes Eisermann, Fausto Ferraccioli, Elena Field, René Forsberg, Steven Franke, Shuji Fujita, Yonggyu Gim, Vikram Goel, Siva Prasad Gogineni, Jamin Greenbaum, Benjamin Hills, Richard C.A. Hindmarsh, Andrew O. Hoffman, Per Holmlund, Nicholas Holschuh, John W. Holt, Annika N. Horlings, Angelika Humbert, Robert W. Jacobel, Daniela Jansen, Adrian Jenkins, Wilfried Jokat, Tom Jordan, Edward King, Jack Kohler, William Krabill, Mette Kusk Gillespie, Kirsty Langley, Joohan Lee, German Leitchenkov, Carlton Leuschen, Bruce Luyendyk, Joseph Macgregor, Emma Mackie, Kenichi Matsuoka, Mathieu Morlighem, Jérémie Mouginot, Frank O. Nitsche, Yoshifumi Nogi, Ole A. Nost, John Paden, Frank Pattyn, Sergey V. Popov, Eric Rignot, David M. Rippin, Andrés Rivera, Jason Roberts, Neil Ross, Anotonia Ruppel, Dustin M. Schroeder, Martin J. Siegert, Andrew M. Smith, Daniel Steinhage, Michael Studinger, Bo Sun, Ignazio Tabacco, Kirsty Tinto, Stefano Urbini, David Vaughan, Brian C. Welch, Douglas S. Wilson, Duncan A. Young, and Achille Zirizzotti. Antarctic Bedmap data: Findable, Accessible, Interoperable, and Reusable (FAIR) sharing of 60 years of ice bed, surface, and thickness data. <em>Earth System Science Data</em>, 15(7):2695–2710, 2023. <a class="reference external" href="https://doi.org/10.5194/essd-15-2695-2023">doi:10.5194/essd-15-2695-2023</a>.</p>
 </div>
-<div class="citation" id="id3" role="doc-biblioentry">
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Gud75<span class="fn-bracket">]</span></span>
+<p>Preben Gudmandsen. Layer echoes in polar ice sheets. <em>Journal of Glaciology</em>, 15(73):95–101, 1975. <a class="reference external" href="https://doi.org/10.3189/S0022143000034304">doi:10.3189/S0022143000034304</a>.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>HS18<span class="fn-bracket">]</span></span>
+<p>Anton Heister and Rolf Scheiber. Coherent large beamwidth processing of radio-echo sounding data. <em>Cryosphere</em>, 12(9):2969–2979, 2018. <a class="reference external" href="https://doi.org/10.5194/tc-12-2969-2018">doi:10.5194/tc-12-2969-2018</a>.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>HCA14<span class="fn-bracket">]</span></span>
 <p>Nicholas Holschuh, Knut Christianson, and Sridhar Anandakrishnan. Power loss in dipping internal reflectors, imaged using ice-penetrating radar. <em>Annals of Glaciology</em>, 55(67):49–56, 2014. <a class="reference external" href="https://doi.org/10.3189/2014AoG67A005">doi:10.3189/2014AoG67A005</a>.</p>
 </div>
-<div class="citation" id="id13" role="doc-biblioentry">
+<div class="citation" id="id10" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>HLC19<span class="fn-bracket">]</span></span>
 <p>Nicholas Holschuh, David A Lilien, and Knut Christianson. Thermal Weakening, Convergent Flow, and Vertical Heat Transport in the Northeast Greenland Ice Stream Shear Margins. <em>Geophysical Research Letters</em>, pages 8184–8193, 2019. <a class="reference external" href="https://doi.org/10.1029/2019gl083436">doi:10.1029/2019gl083436</a>.</p>
 </div>
-<div class="citation" id="id12" role="doc-biblioentry">
+<div class="citation" id="id9" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>Hud15<span class="fn-bracket">]</span></span>
-<p>Peter J. Hudleston. Structures and fabrics in glacial ice: A review. 12 2015. <a class="reference external" href="https://doi.org/10.1016/j.jsg.2015.09.003">doi:10.1016/j.jsg.2015.09.003</a>.</p>
+<p>Peter J. Hudleston. Structures and fabrics in glacial ice: A review. <em>Journal of Structural Geology</em>, 81:1–27, 12 2015. <a class="reference external" href="https://doi.org/10.1016/j.jsg.2015.09.003">doi:10.1016/j.jsg.2015.09.003</a>.</p>
 </div>
-<div class="citation" id="id15" role="doc-biblioentry">
+<div class="citation" id="id12" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>JMF+18<span class="fn-bracket">]</span></span>
 <p>T. A. Jordan, C. Martin, F. Ferraccioli, K. Matsuoka, H. Corr, R. Forsberg, A. Olesen, and M. Siegert. Anomalously high geothermal flux near the South Pole. <em>Scientific Reports</em>, 8(1):1–8, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41598-018-35182-0">http://dx.doi.org/10.1038/s41598-018-35182-0</a>, <a class="reference external" href="https://doi.org/10.1038/s41598-018-35182-0">doi:10.1038/s41598-018-35182-0</a>.</p>
 </div>
-<div class="citation" id="id14" role="doc-biblioentry">
+<div class="citation" id="id11" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>KRBV12<span class="fn-bracket">]</span></span>
 <p>Nanna B. Karlsson, David M. Rippin, Robert G. Bingham, and David G. Vaughan. A 'continuity-index' for assessing ice-sheet dynamics from radar-sounded internal layers. <em>Earth and Planetary Science Letters</em>, 335-336:88–94, 2012. <a class="reference external" href="https://doi.org/10.1016/j.epsl.2012.04.034">doi:10.1016/j.epsl.2012.04.034</a>.</p>
 </div>
-<div class="citation" id="id9" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>KSA+18<span class="fn-bracket">]</span></span>
-<p>J. Kingslake, R. P. Scherer, T. Albrecht, J. Coenen, R. D. Powell, R. Reese, N. D. Stansell, S. Tulaczyk, M. G. Wearing, and P. L. Whitehouse. Extensive retreat and re-advance of the West Antarctic Ice Sheet during the Holocene. <em>Nature</em>, 558(7710):430–434, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41586-018-0208-x">http://dx.doi.org/10.1038/s41586-018-0208-x</a>, <a class="reference external" href="https://doi.org/10.1038/s41586-018-0208-x">doi:10.1038/s41586-018-0208-x</a>.</p>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>KRVC09<span class="fn-bracket">]</span></span>
+<p>Nanna B. Karlsson, David M. Rippin, David G. Vaughan, and Hugh F.J. Corr. The internal layering of Pine Island Glacier, West Antarctica, from airborne radar-sounding data. <em>Annals of Glaciology</em>, 50(51):141–146, 2009. <a class="reference external" href="https://doi.org/10.3189/s0260305500250660">doi:10.3189/s0260305500250660</a>.</p>
 </div>
-<div class="citation" id="id8" role="doc-biblioentry">
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>LST+21<span class="fn-bracket">]</span></span>
+<p>David A. Lilien, Daniel Steinhage, Drew Taylor, Frédéric Parrenin, Catherine Ritz, Robert Mulvaney, Carlos Martín, Jie Bang Yan, Charles O'Neill, Massimo Frezzotti, Heinrich Miller, Prasad Gogineni, Dorthe Dahl-Jensen, and Olaf Eisen. Brief communication: New radar constraints support presence of ice older than 1.5&amp;thinsp;Myr at Little Dome C. <em>Cryosphere</em>, 15(4):1881–1888, 2021. <a class="reference external" href="https://doi.org/10.5194/tc-15-1881-2021">doi:10.5194/tc-15-1881-2021</a>.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MFC+15<span class="fn-bracket">]</span></span>
+<p>Joseph A MacGregor, Mark A Fahnestock, Ginny A Catania, John D Paden, S Prasad Gogineni, S Keith Young, Susan C Rybarski, Alexandria N Mabrey, Benjamin M Wagman, and Mathieu Morlighem. Radiostratigraphy and age structure of the Greenland Ice Sheet. <em>Journal of Geophysical Research: Earth Surface</em>, 120:212–241, 2015. <a class="reference external" href="https://doi.org/10.1002/2014JF003215.Received">doi:10.1002/2014JF003215.Received</a>.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>RodriguezBVB09<span class="fn-bracket">]</span></span>
+<p>Ernesto Rodríguez, A. Bertran, C. Veeramacheneni, and John Belz. Multi-squint radar sounder processing. In <em>International Geoscience and Remote Sensing Symposium</em>. 2009. URL: <a class="reference external" href="https://api.semanticscholar.org/CorpusID:17738554">https://api.semanticscholar.org/CorpusID:17738554</a>.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SWC+23<span class="fn-bracket">]</span></span>
+<p>Rebecca J Sanderson, Kate Winter, S Louise Callard, Felipe Napoleoni, Neil Ross, Tom A Jordan, and Robert G Bingham. Englacial architecture of lambert glacier, east antarctica. <em>The Cryosphere</em>, 17:4853–4871, 2023. <a class="reference external" href="https://doi.org/10.5194/tc-17-4853-2023">doi:10.5194/tc-17-4853-2023</a>.</p>
+</div>
+<div class="citation" id="id2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SBB+20<span class="fn-bracket">]</span></span>
+<p>Dustin M. Schroeder, Robert G. Bingham, Donald D. Blankenship, Knut Christianson, Olaf Eisen, Gwenn E. Flowers, Nanna B. Karlsson, Michelle R. Koutnik, John D. Paden, and Martin J. Siegert. Five decades of radioglaciology. <em>Annals of Glaciology</em>, 61(81):1–13, 2020. <a class="reference external" href="https://doi.org/10.1017/aog.2020.11">doi:10.1017/aog.2020.11</a>.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>SRC+13<span class="fn-bracket">]</span></span>
 <p>Martin Siegert, Neil Ross, Hugh Corr, Jonathan Kingslake, and Richard Hindmarsh. Late Holocene ice-flow reconfiguration in the Weddell Sea sector of West Antarctica. <em>Quaternary Science Reviews</em>, 78:98–107, 2013. <a class="reference external" href="https://doi.org/10.1016/j.quascirev.2013.08.003">doi:10.1016/j.quascirev.2013.08.003</a>.</p>
 </div>
-<div class="citation" id="id10" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>YSJ+21<span class="fn-bracket">]</span></span>
-<p>T. J. Young, D. M. Schroeder, T. M. Jordan, P. Christoffersen, S. M. Tulaczyk, R. Culberg, and N. L. Bienert. Inferring Ice Fabric From Birefringence Loss in Airborne Radargrams: Application to the Eastern Shear Margin of Thwaites Glacier, West Antarctica. <em>Journal of Geophysical Research: Earth Surface</em>, 126(5):1–26, 2021. <a class="reference external" href="https://doi.org/10.1029/2020JF006023">doi:10.1029/2020JF006023</a>.</p>
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>WWR+15<span class="fn-bracket">]</span></span>
+<p>Kate Winter, John Woodward, Neil Ross, Stuart A. Dunning, Robert G. Bingham, Hugh F.J. Corr, and Martin J. Siegert. Airborne radar evidence for tributary flow switching in Institute Ice Stream, West Antarctica: Implications for ice sheet configuration and dynamics. <em>Journal of Geophysical Research: Earth Surface</em>, 120(9):1611–1625, 2015. <a class="reference external" href="https://doi.org/10.1002/2015JF003518">doi:10.1002/2015JF003518</a>.</p>
 </div>
 </div>
 </div>
@@ -444,25 +515,21 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cloudcompute.html"
+       href="multisquint.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Appendix: Cloud-computing</p>
+        <p class="prev-next-title">Multi-Squint Focusing</p>
       </div>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -485,9 +552,10 @@ By Benjamin Hills and coauthors
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -511,8 +579,8 @@ By Benjamin Hills and coauthors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

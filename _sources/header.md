@@ -12,7 +12,7 @@ $^4$Department of Earth and Environmental Sciences, Ludwig-Maximilians-Universit
 <br>
 $^5$Department of Geology, Amherst College, MA, USA
 <br>
-$^6$Capella Space, CA, USA
+$^6$European Space Agency, Italy
 <br>
 $^7$Center for Remote Sensing and Integrated Systems, University of Kansas, Lawrence, KS, USA
 <br>
