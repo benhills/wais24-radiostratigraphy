@@ -1,57 +1,38 @@
 # Introduction
 
 <!--- high-level radar sounding and englacial layers -->
-<!---
-Radio-echo sounding (RES) is commonly used to survey ice masses \citep{Schroeder2020FiveRadioglaciology}, with targets of both the ice-bed interface \citep{Fremand2023AntarcticData} and englacial layers \citep{Bingham2024ReviewSheets,Macgregor2015Radiostratigraphy}.
-Englacial radio echoes are reflected by conductivity or permittivity contrasts, most commonly associated with changes in the ice impurity content \citep{Eisen2003RevealingModeling, gudmandsen1975layer}.
-Those impurity contrasts are deposited as continuous horizons with annual or inter-annual variations in the snow deposition.
-Since the layers are continuous and uniform, they form a set of coherent reflections comprising the "radiostratigraphy".-->
-Ice is largely transparent to radio waves, so radio-echo sounding (RES) is a unique glaciological surveying tool that gives a view inside ice sheets at continental scale.
-Radar echoes from the ice bottom are used to survey ice-sheet geometry for constraints on the total ice volume {cite}`Fremand2023AntarcticData`.
-Substantially more information is preserved *within* the ice column, where englacial echoes are created by contrasts in conductivity or permittivity. 
-When englacial echoes are coherent between traces, they form continuous horizontal layers across the image, a ''radiostratigraphy''. 
-The continuous layers are commonly interpreted to be of equal age and are used to date ice across the large spatial scales between ice cores {cite}`Cavitte2021AYears`, as is the goal of AntArchitecture, an action group for the Scientific Committee on Antarctic Research {cite}`Bingham2024ReviewSheets`. 
-Continuous layers can also be distorted by ice flow, so present-day stratigraphy preserves a history of ice dynamics from which we can infer both past flow {cite}`Conway2002SwitchStream` and dynamic change through the transition {cite}`Siegert2013LateAntarctica`.
-
-<!--- layer disruptions; recrystalization, birefringence, end with open ended 'vertical disruptions' -->
-<!-- Although deposited uniformly, englacial layers are advected with the ice as it flows, and can therefore be strained, disrupted, or even destroyed entirely.
-For that reason, an inferred continuity of englacial layers is commonly used to assess change in dynamic areas \citep{Karlsson2012ALayers}.
-Extraordinary ice properties can also disrupt the radiostratigraphy, although less directly.
-For example, radar birefringence in anisotropic ice creates a "beat signature" in the received power, obscuring signal reflected from layers at a regular frequency \citep{Young2021InferringAntarctica}.
-Additionally, recrystallization in warm ice \citep{mutter-2024-2450,Lilien2021BriefC} or entrained sediment/water \citep{} may lead to incoherent volume scattering in basal ice which, again, disrupts the radiostratigraphy.-->
-Observed englacial layers, however, are not always continuous, which then limits or wholly prevents interpretations for ice-sheet geometry, process, and dynamic history.
-The stratigraphy can be disrupted by cross-cutting reflectors such as fractures and unconformities {cite}`Kingslake2018ExtensiveHolocene`.
-There are also cases, the focus of this article, where the imaged radiostratigraphy may be poorly resolved even when there is no explicit physical disruption in the englacial layers: i) birefringence in anisotropic ice can cause the polarized wave to rotate in and out of alignment with the receive antenna {cite}`Young2021InferringAntarctica`; and ii) destructive interference due to assumptions built into standard processing algorithms (i.e., the focusing aperture) can reduce the representative power in the processed RES image, especially for dipping layers {cite}`holschuh2014power`.
+Radio-echo sounding (RES) is commonly used to survey glaciers and ice sheets {cite}`Schroeder2020FiveRadioglaciology`, since radio echoes from the ice-bed interface give an estimate of the total ice-sheet volume {cite}`Fremand2023AntarcticData`.
+Additional information is preserved *within* the ice column, where englacial echoes are created by contrasts in conductivity or permittivity, typically associated with changes in the ice impurity content {cite}`Eisen2003RevealingModeling` {cite}`gudmandsen1975layer`.
+Some englacial layers are smooth relative to the transmitted radar wavelength, deposited uniformly as continuous horizons with annual or inter-annual variations in the snow deposition and buried over time, forming a stratified set of coherent reflections comprising the "radiostratigraphy" {cite}`Macgregor2015Radiostratigraphy`.
+Those smooth layers create specular radar reflections, where most energy is reflected at the incident angle.
+For a perfectly specular horizontal layer and a nadir-looking radar *all* the reflected energy is directed back to the receiver.
+For this reason, the relatively flat near-surface layers in the accumulation area of an ice sheet are extraordinarily well-resolved and can be connected over 100s of km between ice cores {cite}`Cavitte2021AYears` {cite}`Bingham2024ReviewSheets`. 
 
 <!--- vertical disruptions in detail -->
-<!--One particular classification of radiostratigraphic disruption (Figure \ref{fig:1-whirlwind-examples})
-\cite{Holschuh2014PowerRadar}
-\cite{Winter2015AirborneDynamics}
-\cite{Franke2022AirborneStream}
-\cite{Karlsson2009TheData}-->
-Englacial layers in an ice sheet are generally smooth relative to the transmitted radar wavelength, so they create a specular reflection, where most energy is reflected at the incident angle.
-For a perfectly horizontal layer and a nadir-looking radar *all* the reflected energy is directed back to the receiver.
-Some layers are approximately this way, deposited uniformly as a slight chemical or density anomaly at the ice surface and buried over time.
-For this reason, near-surface layers in the accumulation area are extraordinarily well-resolved and can be connected over 100s of km between ice cores {cite}`Cavitte2021AYears`{cite}`Bodart2021Age-DepthChronology`.
-In other settings, layers are not flat; for example, near the glacier bed layers will begin to conform with the bed topography {cite}`Hudleston2015StructuresReview`, even if that is steep or rough.
-On the other hand, in highly dynamic areas layers may *not* conform with the bed, often being distorted by the ice flow {cite}`Holschuh2019ThermalMargins`{cite}`Karlsson2012ALayers` or mass exchange at the bed {cite}`Jordan2018AnomalouslyPole`{cite}`Bell2011WidespreadBase`.
+In other glaciological settings, englacial layers are not flat; for example, near the glacier bed layers will begin to conform with the bed topography {cite}`Hudleston2015StructuresReview`, even if that is steep or rough.
+In highly dynamic areas, layers may not be flat nor conform with the bed, often being distorted by the ice flow {cite}`Holschuh2019ThermalMargins`{cite}`Karlsson2012ALayers` or mass exchange at the bed {cite}`Jordan2018AnomalouslyPole`{cite}`Bell2011WidespreadBase`, and possibly preserving a history of paleo ice dynamics {cite}`Conway2002SwitchStream` {cite}`Siegert2013LateAntarctica`.
 In any case, layer dips can steepen significantly compared to the flat ice-sheet surface.
 Then, a *dipping* specular layer may be resolvable only by some off-nadir propagating wave, orthogonal to the layer dip.
+For this reason, recieved radar power is often diminished for dipping layers {cite}`holschuh2014power`, sometimes creating anomalous vertical features within the RES image which have been called "tornadoes" or "whirlwinds" {cite}`Karlsson2009TheData` {cite}`Winter2015AirborneDynamics` ({numref}`reference-radargrams`).
 
-<!-- incoherent and coherent processing to increase signal of layers
-\cite{Castelletti2019LayerData,Heister2018CoherentData,Ferro2019SquintedEnhancement,Rodriguez2009MultiSquintRS}
-Focused products work well for the bed echo which is rough at the radar wavelength and therefore diffuse.
-However, the specular englacial echoes are not always well resolved in these products.
-In fact, the hyperbolic stacking can create destructive interference in dipping layers---in some cases causing them to vanish entirely.
+```{figure} ./figures/ReferenceImages.png
+---
+height: 300px
+name: reference-radargrams
+---
+[!!!PLACEHOLDER!!!] RES images with vertical disruptions in the radiostratigraphy, sometimes called "tornadoes" or "whirlwinds". {cite}`Karlsson2009TheData` {cite}`Winter2015AirborneDynamics` {cite}`Franke2022AirborneStream` {cite}`holschuh2014power`
+```
 
-As an alternative, {cite}`castelletti2019layer` proposed a ''layer-optimized''' SAR (LOSAR) algorithm which stacks along a linear dip angle within the synthetic aperture.
-The authors demonstrated the algorithm with a single dataset from the British Antarctic Survey (BAS), but it is applicable to any phase-coherent profiling radar sounder.
+<!-- coherent processing to increase signal of layers-->
+The radar antennas used for sounding through ice have a small *real* aperture, meaning that the real beam width is large and some portion of the radar wave is directed off nadir.
+It is therefore expected that radar power should be received even from dipping specular layers, but that destructive interference within the *synthetic* aperture can diminish power for those layers {cite}`holschuh2014power`.
+The most commonly used synthetic aperture radar (SAR) processing algorithms are optimized for targets which are rough at the scale of the radar wavelength, scattering energy in all directions (diffuse), and are therefore observable from the many aspects across the synthetic aperture.
+As an alternative, Castelletti et al. {cite}`castelletti2019layer` proposed a "layer-optimized" SAR (LOSAR) algorithm which stacks along a linear dip angle within the synthetic aperture (assuming perfect specularity).
 LOSAR images have better-resolved radiostratigraphy compared to prior data products.
-The improved result can be used for better interpretations of individual layers of interest and to generate more precise glaciological {cite}`sanderson2023_EnglacialAntarctica`{cite}`Catania2006SequentialAntarctica`{cite}`Conway2002SwitchStream` and paleoclimatological {cite}`lilien2021_BriefDomeC`{cite}`Cavitte2021AYears`{cite}`Bodart2021Age-DepthChronology` insight.
-Importantly, there is also a secondary output from the LOSAR algorithm: the dip angle of the layer itself, chosen as the Doppler frequency/wavenumber with the greatest power.
-Since the layer dip can be estimated algorithmically, the shapes of layers can be considered without any need for manual interpretation of individual reflection horizons (as has been done in past work; e.g., {cite}`Macgregor2015Radiostratigraphy`).
-Similar work has done the same layer-dip estimation, even for radars which are not phase coherent, through image processing techniques {cite}`Holschuh2017DecodingSlopes`{cite}`Panton2014AutomatedEchograms`{cite}`Delf2020ASheets`, but with less capability to recover the stratigraphy.
-High fidelity, algorithmically acquired layer dips across full survey campaigns can be used to guide phase-based layer tracking {cite}`Macgregor2015Radiostratigraphy`, or as we propose here to interpret the ice dynamics and ice-sheet history directly.-->
+However, some energy can be in the wrong location {cite}`Heister2018CoherentData`.
 
-Here, we...
-
+<!-- In this paper we will...-->
+In this work, we outline an alternative SAR processing algorithm which uses a synthetic squint angle {cite}`Rodriguez2009MultiSquintRS` {cite}`Ferro2019SquintedEnhancement` to steer the radar beam off nadir and toward orthogonal incidince with a dipping englacial layer.
+By using multiple squints within the same RES image, we compile a mosaic in which the signal-to-noise is maximized for all englacial targets.
+We demonstate the effectiveness of the algorithm with an example from Academy Glacier in East Antarctica.
+The improved result can be used for better interpretations of individual layers of interest and to generate more precise glaciological {cite}`sanderson2023englacial` {cite}`Catania2006SequentialAntarctica` and paleoclimatological {cite}`Lilien2021BriefC` {cite}`Bodart2021Age-DepthChronology` insight.

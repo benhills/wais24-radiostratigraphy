@@ -12,25 +12,24 @@ kernelspec:
   name: python3
 ---
 
+```{note}
+This section is In {doc}`multisquint` we explore an alternative.
+Below, we give added background for context.
+```
+
 # Background
 
 <!--- SAR processing -->
-Individual radar reflections are rarely used as a final data product.
-Instead, synthetic aperture radar (SAR) focusing is used to improve the spatial resolution by coherently stacking traces within a prescribed ''aperture'' (number of neighboring traces).
-The most common SAR focusing algorithms (e.g., the ''standard'' product from the Center for Remote Sensing and Integrated Systems, CReSIS) are optimized for diffuse reflectors, assuming that the same feature can create an observable echo from multiple directions.
-Then, data are coherently stacked along a hyperbola to ''focus'' the data (commonly done in the frequency domain).
-
-```{note}
-In {doc}`multisquint` we explore an alternative.
-Below, we give added background for context.
-```
+As a radar instrument moves through a synthetic aperture, the range between instrument and target changes between acquisitions.
+Hence, waveform stacking within a SAR algorithm requires a range (or phase) correction if it is to coherently "focus" the data, improving both the signal-to-noise ratio and the spatial resolution {cite}`book`.
+In this section, we use the radar sounding geometry to derive the range correction, first for the conventional case of a subaerial target (e.g., for spaceborne SAR applications), then for RES through two media (e.g., air and ice for an airborne survey of a glacier or ice sheet).
 
 ## Radar Sounding Geometry
 
 For a given along-track location ($x_j$; commonly referred to as the azimuth for satellite platforms) the range is
 ```{math}
 :label: SAR-range-standard
-r_j = \sqrt{r_0^2+(x_j-x_0)^2}
+r = \sqrt{r_0^2+(x-x_0)^2}
 ```
 where $r_0$ and $x_0$ are the reference range and along-track distance, respectively.
 Here, we will take those reference positions at the closest approach position of the instrument (i.e. directly over the target).
@@ -45,7 +44,7 @@ r = np.sqrt(r0**2+Xs**2)     # distance to target as platform passes by
 
 ```{code-cell}
 import matplotlib.pyplot as plt
-plt.figure()
+plt.figure(figsize=(4,3))
 plt.axhline(0,color='grey',ls=':')
 plt.axvline(0,color='grey',ls=':')
 plt.plot(Xs,r-r0,'k-')
@@ -146,22 +145,34 @@ C_j = e^{-i\phi}
 which is used as a matched filter against the measurements.
 
 ```{code-cell}
-ref_phi = np.exp(-1j*4.*np.pi*ref_r/Lambda) # reference phase history
+from sar_functions import *
+from supplemental import *
 
-plt.figure()
-plt.subplot(211)
-plt.plot(a,ref_r)
-plt.ylabel('range')
-plt.subplot(212)
-plt.plot(a,np.angle(ref_phi))
-plt.ylabel('reference phase');
+plt.figure(figsize=(6,2.5))
+C = matched_filter(r2p(R1_air))
+plt.plot(Xs,np.real(C),'k--')
+C = matched_filter(r2p(R1_ice))
+plt.plot(Xs,np.real(C),'k-')
+plt.xlabel('Along-track distance (m)')
+plt.ylabel('Reference waveform');
 ```
 
-Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam scelerisque et lacus et eleifend. Aenean mattis ligula at bibendum pellentesque. Pellentesque facilisis velit velit, et elementum quam faucibus sed. Praesent sodales lorem ac pellentesque dapibus. Morbi rutrum est vel interdum tincidunt. Proin ac nulla libero. Proin metus arcu, commodo tempor vestibulum vel, posuere eget diam. Sed scelerisque lorem sed libero tristique, eget aliquet augue fermentum. Aenean malesuada justo lectus, ut ornare nisi viverra at. Phasellus eget lectus sem. Duis faucibus diam justo, mollis rhoncus eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.
+```{code-cell}
+plt.figure(figsize=(6,2.5))
+C = matched_filter(r2p(R2_air))
+plt.plot(Xs,np.real(C),'--',c='indianred')
+C = matched_filter(r2p(R2_ice))
+plt.plot(Xs,np.real(C),'-',c='indianred')
+plt.xlabel('Along-track distance (m)')
+plt.ylabel('Refeference waveform');
+```
+
+To focus the image, a matched filter {eq}`matched-filter` is calculated for every range bin, $r_0$, and 
 
 ```{math}
 :label: SAR-focusing
-P_k = \sum E_j(r_j,S_j) exp[-i\phi]
+P_k = \sum_{j=1}^N E_j(r_j,x_j) e^{-i\phi}
 ```
+where $N$ is the number of traces in the synthetic aperture.
 
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam scelerisque et lacus et eleifend. Aenean mattis ligula at bibendum pellentesque. Pellentesque facilisis velit velit, et elementum quam faucibus sed. Praesent sodales lorem ac pellentesque dapibus. Morbi rutrum est vel interdum tincidunt. Proin ac nulla libero. Proin metus arcu, commodo tempor vestibulum vel, posuere eget diam. Sed scelerisque lorem sed libero tristique, eget aliquet augue fermentum. Aenean malesuada justo lectus, ut ornare nisi viverra at. Phasellus eget lectus sem. Duis faucibus diam justo, mollis rhoncus eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.
