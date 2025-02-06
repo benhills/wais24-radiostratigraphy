@@ -32,7 +32,7 @@ name: multi-squint-movie
 Image processed across a range of squint angles.
 ```
 
-### Ideal squint angle from Doppler spectra
+## Ideal squint angle from Doppler spectra
 
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
 in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
@@ -91,7 +91,7 @@ $$
 
 The point at which this 
 
-### Compiling an multisquint mosaic
+## Compiling a multisquint mosaic
 
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
 in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99

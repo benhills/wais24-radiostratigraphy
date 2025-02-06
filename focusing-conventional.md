@@ -24,7 +24,7 @@ Hence, waveform stacking within a SAR algorithm requires a range (or phase) corr
 Below, we define a radar sounding geometry and use it to derive a range correction, first for the conventional case of a subaerial target (e.g., for spaceborne SAR applications), then for RES through two media (e.g., air and ice for an airborne survey of a glacier or ice sheet).
 We then use the derived range function to calculate a matched filter to be correlated with the measured radar signal, much like the range-matched filter used for pulse compression but in the along-track dimension.
 
-### SAR geometry
+## SAR geometry
 
 Considering radar-wave propagation through a single media (i.e., for subaerial SAR applications), the propagation path from the radar antenna to target is a direct ray. That is, for a given along-track location ($x$; commonly referred to as the azimuth for satellite platforms) the range is known through the Pythagorean theorem
 ```{math}
@@ -32,7 +32,7 @@ Considering radar-wave propagation through a single media (i.e., for subaerial S
 r = \sqrt{r_0^2+(x-x_0)^2}
 ```
 where $r_0$ and $x_0$ are the reference range and along-track distance, respectively.
-Here, we will take those reference positions at the closest approach position of the instrument platform (i.e. directly over the target).
+Here, we will take those reference positions at the closest approach position of the instrument platform (i.e. directly over the target, so $x_0$ is the center of the aperture).
 
 ```{code-cell}
 import numpy as np
@@ -54,9 +54,7 @@ plt.xlabel('Along-track distance (m)')
 plt.ylim(5,-1);
 ```
 
-Squinted geometry
-
-### SAR focusing
+## SAR focusing
 
 Using the range equations given in the previous section (i.e. equations {eq}`SAR-range-standard` or {eq}`SAR-range-raybend`), we define a phase offset to coherently align waveforms within a synthetic aperture,
 ```{math}

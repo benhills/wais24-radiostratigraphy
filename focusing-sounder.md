@@ -62,18 +62,29 @@ r = \frac{h}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{h+d/n} \right ) \right 
 +   \frac{d}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{nh+d} \right ) \right ) }
 ```
 
+```{code-cell}
+
+```
+
 ```{note}
 The code cells below use functions from external python scripts. See the github repository ([here](https://github.com/benhills/wais24-radiostratigraphy)) to access those scripts.
 ```
 
 ```{code-cell}
+import numpy as np
+import matplotlib.pyplot as plt
 from sar_geometry import *
+
+# define the geometry
+r0 = 1000.     # range to target at closest approach (assume x0 is 0)
 h = 200 # height above ice surface
+dx = .1        # x step
+Xs = np.arange(-100.,100+dx,dx) # along-track distances within the synthetic aperture
 
 # for a given squint angle (theta) find the depth in ice 
 # and along-track distance (x0) from center of aperture to target
 theta = 1e-10*np.pi/180. # divide by zero gives an error so give a small number
-d, x0 = get_depth(r0,h,theta)
+d, x0 = get_depth_dist(r0,h,theta)
 # range offset within aperture - air only so simple geometry
 R1_air = np.sqrt(r0**2.+(Xs-x0)**2.) - r0
 # range offset within aperture - with ice so ray bending
@@ -81,7 +92,7 @@ R1_ice = SAR_aperture_raybend(r0, h, Xs, theta)
 
 # again with non-zero squint
 theta = -3.*np.pi/180.
-d, x0 = get_depth(r0,h,theta)
+d, x0 = get_depth_dist(r0,h,theta)
 # range offset within aperture - air only so simple geometry
 R2_air = np.sqrt((h+d)**2.+(Xs-x0)**2.) - h - d
 # range offset within aperture - with ice so ray bending
