@@ -4,7 +4,8 @@
 format: jb-book
 root: header
 chapters:
-- file: introduction
-- file: background
+#- file: introduction
+- file: focusing-conventional
+- file: focusing-sounder
 - file: multisquint
 - file: bibliography

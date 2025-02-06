@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Multi-squint focusing
+# Multi-squinted sounder focusing
 
 Following the methods in {doc}`background`, we process a radar image at a range of squint angles.
 Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
