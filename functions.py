@@ -163,30 +163,7 @@ def get_range(x, h, d, s, n=n, c=3e8):
     return r_air/c + r_ice*n/c
 
 
-def aperture_extent(r0, h, theta_sq, theta_beam=.1, dx=1, x_ov=1):
-    """
-    Define the aperture extent based on the half beamwidth and squint angle.
-    Convert to index of the image array.
-    """
-
-    # for a given squint angle (theta) find the depth in ice
-    # and along-track distance (x) from center of aperture to target
-    d, x0 = get_depth_dist(r0, h, theta_sq)
-    # define the synthetic aperture extents
-    d_, x_start = get_depth_dist(r0, h, theta_sq-theta_beam/2.)
-    d_, x_end = get_depth_dist(r0, h, theta_sq+theta_beam/2.)
-
-    # aperture extents (index)
-    ind_start = np.round(x_start/(dx/x_ov)).astype(int)
-    ind_end = np.round(x_end/(dx/x_ov)).astype(int)
-
-    # along-track distance for all points in the synthetic aperture
-    x_sa = np.linspace(x_start, x_end, (ind_end-ind_start)+1)
-
-    return x_sa, ind_start, ind_end
-
-
-def SAR_aperture_raybend(t0, h, x, theta=0., n=n, c=3e8):
+def sar_raybend(t0, h, x, theta=0., n=n, c=3e8):
     """
     Ray bending for sounding in two mediums.
     Calculate the SAR range offset across the full aperture.
@@ -195,7 +172,7 @@ def SAR_aperture_raybend(t0, h, x, theta=0., n=n, c=3e8):
 
     Parameters
     ----------
-    r0: float,  measured range to target
+    t0: float,  measured range to target
     h:  float, height of instrument above ice surface
     x:  float or array, measured along-track distance
     theta:  float, squint angle
@@ -220,3 +197,30 @@ def SAR_aperture_raybend(t0, h, x, theta=0., n=n, c=3e8):
         r = get_range(x-x0, h, d, s)
 
     return r
+
+
+def sar_extent(t0, h, theta_sq, theta_beam=.1, dx=1):
+    """
+    Define the aperture extent based on the half beamwidth and squint angle.
+    Convert to index of the image array.
+    """
+
+    # for a given squint angle (theta) find the depth in ice
+    # and along-track distance (x) from center of aperture to target
+    d, x0 = get_depth_dist(t0, h, theta_sq)
+    # define the synthetic aperture extents
+    d_, x_start = get_depth_dist(t0, h, theta_sq+theta_beam/2.)
+    d_, x_end = get_depth_dist(t0, h, theta_sq-theta_beam/2.)
+
+    # TODO: explain this
+    x_start *= -1
+    x_end *= -1
+
+    # aperture extents (index)
+    ind_start = np.round(x_start/(dx)).astype(int)
+    ind_end = np.round(x_end/(dx)).astype(int)
+
+    # along-track distance for all points in the synthetic aperture
+    x_sa = np.linspace(x_start, x_end, (ind_end-ind_start)+1)
+
+    return x_sa+x0, ind_start, ind_end
