@@ -10,10 +10,42 @@ import numpy as np
 
 """
 Geometric functions for the squintsar processing library
+Following Heliere et al. (2007)
+https://doi.org/10.1109/TGRS.2007.897433
 """
 
 # refractive index for ice
 n = np.sqrt(3.15)
+
+
+def r2p(r, fc=150e6):
+    """
+    Convert range to phase
+
+    Parameters
+    ----------
+    r:  float,  range
+    """
+
+    # phase
+    return 4.*np.pi*fc*r
+
+
+def matched_filter(phi):
+    """
+    Phase to complex number for matched filter in along-track compression
+
+    Parameters
+    ----------
+    phi:    float, phase
+
+    Output
+    ----------
+    C:      complex, matched filter
+    """
+
+    # matched filter
+    return np.exp(-1j*phi)
 
 
 def snell(theta, n=n):
@@ -34,14 +66,14 @@ def snell(theta, n=n):
     return np.arcsin(np.sin(theta)/n)
 
 
-def get_depth_dist(r0, h, theta, n=n):
+def get_depth_dist(t0, h, theta, n=n, c=3e8):
     """
     Use Snell's law and simple trigonometry to find the depth of target
     and along-track distance to closest approach.
 
     Parameters
     ----------
-    r0: float, total range to target
+    t0: float, total range to target
     h:  float, height of instrument above ice surface
     theta:  float, squint angle (propagation direction through air)
     n:  float, refractive index of second material (first assumed air)
@@ -57,7 +89,7 @@ def get_depth_dist(r0, h, theta, n=n):
     # propagation through air
     r_air, x_air = h/np.cos(theta), h*np.tan(theta)
     # total propagation range along ray path
-    r_ice = r0 - r_air
+    r_ice = (t0 - r_air/c)*c/n
     # propagation through ice
     d, x_ice = r_ice*np.cos(theta_ice), r_ice*np.sin(theta_ice)
 
@@ -81,11 +113,11 @@ def get_refraction_point(x, h, d, n=n):
     s:  float, along-track location where the ray intersects the ice surface
     """
 
-    if not hasattr(x,'__len__'):
+    if not hasattr(x, '__len__'):
         x = np.array([x])
-        
+
     s = np.empty_like(x)
-    for i,xi in enumerate(x):
+    for i, xi in enumerate(x):
         a4 = n**2.-1.
         a3 = -2*a4*xi
         a2 = a4*xi**2.+(n*h)**2.-d**2.
@@ -107,7 +139,7 @@ def get_refraction_point(x, h, d, n=n):
         return s
 
 
-def get_range(x, h, d, s, n=n):
+def get_range(x, h, d, s, n=n, c=3e8):
     """
     Range to target.
 
@@ -128,7 +160,7 @@ def get_range(x, h, d, s, n=n):
     # propagation through ice
     r_ice = np.sqrt(d**2.+s**2.) - d
 
-    return r_air+n*r_ice
+    return r_air/c + r_ice*n/c
 
 
 def aperture_extent(r0, h, theta_sq, theta_beam=.1, dx=1, x_ov=1):
@@ -145,8 +177,8 @@ def aperture_extent(r0, h, theta_sq, theta_beam=.1, dx=1, x_ov=1):
     d_, x_end = get_depth_dist(r0, h, theta_sq+theta_beam/2.)
 
     # aperture extents (index)
-    ind_start = np.round((x_start-x0)/(dx/x_ov)).astype(int)
-    ind_end = np.round((x_end-x0)/(dx/x_ov)).astype(int)
+    ind_start = np.round(x_start/(dx/x_ov)).astype(int)
+    ind_end = np.round(x_end/(dx/x_ov)).astype(int)
 
     # along-track distance for all points in the synthetic aperture
     x_sa = np.linspace(x_start, x_end, (ind_end-ind_start)+1)
@@ -154,7 +186,7 @@ def aperture_extent(r0, h, theta_sq, theta_beam=.1, dx=1, x_ov=1):
     return x_sa, ind_start, ind_end
 
 
-def SAR_aperture_raybend(r0, h, x, theta=0., n=n):
+def SAR_aperture_raybend(t0, h, x, theta=0., n=n, c=3e8):
     """
     Ray bending for sounding in two mediums.
     Calculate the SAR range offset across the full aperture.
@@ -176,12 +208,15 @@ def SAR_aperture_raybend(r0, h, x, theta=0., n=n):
 
     # for a given squint angle (theta) find the depth in ice
     # and along-track distance (x) from center of aperture to target
-    d, x0 = get_depth_dist(r0, h, theta)
+    d, x0 = get_depth_dist(t0, h, theta)
 
-    # small offsets to the squint angle within the aperture
-    s = get_refraction_point(x-x0, h, d)
-
-    # range within aperture
-    r = get_range(x-x0, h, d, s)
+    # reference function placed consistently in the oversized array
+    if d < 0:  # for returns above the ice surface
+        r = (np.sqrt(h**2.+(x-x0)**2.)-h)/c
+    else:
+        # small offsets to the squint angle within the aperture
+        s = get_refraction_point(x-x0, h, d)
+        # range within aperture
+        r = get_range(x-x0, h, d, s)
 
     return r

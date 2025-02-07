@@ -24,7 +24,7 @@ Hence, waveform stacking within a SAR algorithm requires a range (or phase) corr
 Below, we define a radar sounding geometry and use it to derive a range correction, first for the conventional case of a subaerial target (e.g., for spaceborne SAR applications), then for RES through two media (e.g., air and ice for an airborne survey of a glacier or ice sheet).
 We then use the derived range function to calculate a matched filter to be correlated with the measured radar signal, much like the range-matched filter used for pulse compression but in the along-track dimension.
 
-## SAR geometry
+### SAR geometry
 
 Considering radar-wave propagation through a single media (i.e., for subaerial SAR applications), the propagation path from the radar antenna to target is a direct ray. That is, for a given along-track location ($x$; commonly referred to as the azimuth for satellite platforms) the range is known through the Pythagorean theorem
 ```{math}
@@ -32,7 +32,7 @@ Considering radar-wave propagation through a single media (i.e., for subaerial S
 r = \sqrt{r_0^2+(x-x_0)^2}
 ```
 where $r_0$ and $x_0$ are the reference range and along-track distance, respectively.
-Here, we will take those reference positions at the closest approach position of the instrument platform (i.e. directly over the target, so $x_0$ is the center of the aperture).
+Here, we will take those reference positions at the closest approach position of the instrument platform (i.e. directly over the target).
 
 ```{code-cell}
 import numpy as np
@@ -54,7 +54,9 @@ plt.xlabel('Along-track distance (m)')
 plt.ylim(5,-1);
 ```
 
-## SAR focusing
+Squinted geometry
+
+### SAR focusing
 
 Using the range equations given in the previous section (i.e. equations {eq}`SAR-range-standard` or {eq}`SAR-range-raybend`), we define a phase offset to coherently align waveforms within a synthetic aperture,
 ```{math}
@@ -70,16 +72,14 @@ C_j = e^{-i\phi}
 which is used as a matched filter against the measured radar signal.
 
 ```{code-cell}
-# Import functions from external scripts (see the note above)
-from sar_functions import *
-from supplemental import *
-
-# Calculate and plot the matched filter for no squint
 plt.figure(figsize=(6,2.5))
-C = matched_filter(r2p(r))
+
+# Calculate the matched filter for no squint
+c = 3e8  # vacuum wave speed
+fc = 150e6  # center frequency (Hz)
+C = np.exp(-1j*4.*np.pi*fc*r/c)
+
 plt.plot(Xs,np.real(C),'k-')
-#C = matched_filter(r2p(r_squinted))
-#plt.plot(Xs,np.real(C),'--',c='indianred')
 plt.xlabel('Along-track distance (m)')
 plt.ylabel('Reference waveform');
 ```
@@ -90,3 +90,35 @@ To focus the image, a matched filter {eq}`matched-filter` is calculated for ever
 P_{jk} = \sum_{j=1}^N E_{jk}(r_{jk},x_j) e^{-i\phi_j}
 ```
 where $j$ is the along-track index, $k$ the range index, and $N$ the number of along-track pixels included in the synthetic aperture.
+
+```{code-cell}
+# instrument properties
+fc = 150e6 # center frequency
+L_a = 15. # antenna length
+theta_beam = 0.866 * 3e8/(fc*L_a) # "half-power beamwidth" of the antenna with respect to its Length
+```
+
+```{code-cell}
+# preallocate array
+x0 = r0*np.sin(theta_beam)
+Xs = np.arange(-x0,x0+1)
+C_ref_all = np.nan*np.zeros((int(r0),len(Xs)),dtype=np.complex128)
+
+for i,ri in enumerate(range(int(r0))):
+    # get aperture extents
+    x = ri*np.sin(theta_beam)
+    xs = np.arange(-x,x+.01)
+    # now calculate the reference function placed in the oversized array
+    r = np.sqrt(ri**2+xs**2)-ri
+    C = np.exp(-1j*4.*np.pi*fc*r/c)
+    C_ref_all[i,len(Xs)//2-int(x):len(Xs)//2-int(x)+len(xs)] = C
+```
+
+```{code-cell}
+plt.figure(figsize=(4,3))
+plt.pcolormesh(Xs,np.arange(r0),np.real(C_ref_all),cmap='twilight_shifted')
+plt.ylim(r0,0)
+plt.colorbar(label='Reference waveform')
+plt.xlabel('Along-track Distance (m)')
+plt.ylabel('Range (m)');
+```
