@@ -13,19 +13,13 @@ kernelspec:
 ---
 
 ```{note}
-This section gives a high-level background on sar focusing and compression in the along-track direction (sometimes called azimuth compression in conventional SAR textbooks {cite}`Cumming2005`). Readers with a background in SAR methods should skip forward to {doc}`multisquint` where we define and apply our alternative algorithm suited for dipping englacial layers.
+Readers who already have a background in SAR methods should skip forward to {doc}`multisquint` where we outline our algorithm for dipping englacial layers.
 ```
 
 # Radar sounder focusing 
 
-In RES through two media, equation {eq}`SAR-range-standard` is complicated slightly by refraction at the air-ice interface.
-Reframing in terms of the vertical coordinate, it can be shown by the survey geometry ({numref}`SAR-geometry`) that
-```{math}
-:label: SAR-range-raybend
-r = r_{air} + r_{ice} = \frac{h}{\cos\theta} + \frac{d}{\cos\theta_{ice}}
-```
-where $h$, the height of the instrument platform above the ice surface, and $d$, the depth of the target below the ice surface, are known and assumed to be fixed within a given synthetic aperture.
-If the $h$ is not fixed due to motion of the platform, it is assumed that motion can be compensated.
+For radar "sounding", the desired targets are below the surface, so waves propagate through two media, commonly air and ice (e.g., for glaciological sounding).
+In this case, the range correction is complicated slightly by refraction at the air-ice interface ({numref}`SAR-geometry`).
 
 ```{figure} ./figures/SAR_geometry.png
 ---
@@ -35,32 +29,41 @@ name: SAR-geometry
 Illustration of SAR geometry for wave propagation through two media and refraction at their interface.
 ```
 
-There are two additional unknown variables which must be related to $x$ in order to build an expected range function for the synthetic aperture, $r(x)$, similar to equation {eq}`SAR-range-standard`.
-Those are the squint angle, $\theta$, and its associated angle after ray bending into the ice, $\theta_{ice}$.
-First, the two propagation angles are related through Snell's law,
+Now, add a range component to equation {eq}`SAR-range-standard`, the original for propagation through air and a second for ice,
+```{math}
+:label: SAR-range-raybend
+r = r_{air} + r_{ice} = \sqrt{h^2 + (x-s)^2} + n\sqrt{d^2 + s^2}
+```
+where $h$, the height of the instrument platform above the ice surface, and $d$, the depth of the target below the ice surface, are known and assumed to be fixed within a given synthetic aperture.
+If the $h$ is not fixed due to motion of the platform, it is assumed that motion can be compensated.
+$n=\sqrt{\varepsilon_r}$ is the refractive index, and $\varepsilon_r$ the relative permittivity, of ice.
+Following Heliere et al. {cite}`heliere2007radio`, we can solve for the along-track point of refraction at the ice surface, $s$.
+To do so, we relate the propagation angles in the air, squint angle $\theta$, and ice, $\theta_{ice}$, through Snell's law,
 ```{math}
 :label: snells-law
 \frac{\sin\theta_1}{\sin\theta_2} = \frac{n_2}{n_1}
 ```
-where $n=\sqrt{\epsilon}$ is the refractive index and $\epsilon$ the permittivity.
-When the first material is air, $n_1\approx1$, and equation {eq}`snells-law` reduces to
+In air, $n_1\approx1$, and equation {eq}`snells-law` reduces to
 ```{math}
 :label: snells-law-2
 \sin\theta = n\sin\theta_{ice}
 ```
 now with the only $n$ being that for the second medium (ice; $n\approx1.77$).
-Second, the propagation angle can be related to the range from instrument to target by assuming that the squint angle is relatively small ($\tan\theta=n\tan\theta_{ice}$)
+Then, based on the geometry in {numref}`SAR-geometry`, we substitute distances into equation {eq}`snells-law-2`
 ```{math}
-:label: angle-approximation
-\tan\theta = \frac{x-x_0}{h+d/n}
+:label: snells-law-geometry
+\frac{x - s}{\sqrt{h^{2} + (x - s)^{2}}} = n\frac{s}{\sqrt{d^{2} + s^{2}}}
 ```
-Then, substituting equations {eq}`snells-law-2` and {eq}`angle-approximation` into equation {eq}`SAR-range-raybend` gives the relative range as a function of position within the synthetic aperture,
-
+which can be rearranged to a quartic equation for $s$,
 ```{math}
-:label: SAR-range-raybend-full
-r = \frac{h}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{h+d/n} \right ) \right )} 
-+   \frac{d}{\cos \left ( \tan^{-1} \left ( \frac{x-x_0}{nh+d} \right ) \right ) }
+:label: quartic
+(\varepsilon_r - 1)s^4 - 
+2(\varepsilon_r - 1)xs^3 + 
+\left [ (\varepsilon_r - 1) x^2 + \varepsilon_r h^{2} - d^2 \right ] s^2 +
+2d^{2} xs - 
+d^{2} x^{2} = 0
 ```
+Equation {eq}`quartic` has four roots, the smallest of which is our geometric distance in the along-track direction between the target and the point of refraction. Taking that root for $s$ and plugging into {eq}`SAR-range-raybend`, we repeat the calculations from {doc}`focusing-conventional` but for sounding through two media.
 
 ```{note}
 The code cells below use functions from external python scripts. See the github repository ([here](https://github.com/benhills/wais24-radiostratigraphy)) to access those scripts.
@@ -69,7 +72,7 @@ The code cells below use functions from external python scripts. See the github 
 ```{code-cell}
 import numpy as np
 import matplotlib.pyplot as plt
-from sar_geometry import *
+from functions import *
 
 # define the geometry
 c = 3e8
@@ -80,12 +83,12 @@ Xs = np.arange(-100.,100+dx,dx) # along-track distances within the synthetic ape
 
 # for a given squint angle (theta) find the depth in ice 
 # and along-track distance (x0) from center of aperture to target
-theta_sq = 1e-10*np.pi/180.
+theta_sq = 1e-10*np.pi/180. # divide by zero gives an error so give a small number
 r0 = t0*c
 # range offset within aperture - air only so simple geometry
 R1_air = (np.sqrt(r0**2.+Xs**2.) - r0)/c
 # range offset within aperture - with ice so ray bending
-R1_ice = SAR_aperture_raybend(t0, h, Xs, theta_sq)
+R1_ice = sar_raybend(t0, h, Xs, theta_sq)
 
 # again with non-zero squint
 theta_sq = -3.*np.pi/180.
@@ -95,7 +98,7 @@ h_air = r0*np.cos(theta_sq)    # vertical height above target at closest approac
 R2_air = (np.sqrt(h_air**2.+(Xs-x0)**2.) - h_air)/c
 # range offset within aperture - with ice so ray bending
 d, x0 = get_depth_dist(t0,h,theta_sq)
-R2_ice = SAR_aperture_raybend(t0, h, Xs, theta_sq)
+R2_ice = sar_raybend(t0, h, Xs, theta_sq)
 ```
 
 ```{code-cell}
@@ -151,7 +154,7 @@ dt = 2e-8
 dx = 0.1
 theta_sq = -3.*np.pi/180.
 
-Xs, ind_start_max, ind_end_max = aperture_extent(t0, h, theta_sq, theta_beam, dx=dx)
+Xs, ind_start_max, ind_end_max = sar_extent(t0, h, theta_sq, theta_beam, dx=dx)
 if ind_start_max > 0:
     ind_start_max = 0
     Xs = np.arange(0,max(Xs),dx)
@@ -160,10 +163,10 @@ n_x_max = ind_end_max-ind_start_max
 C_ref_all = np.zeros((int(t0/dt),n_x_max+1),dtype=np.complex128)
 for si,ti in enumerate(np.arange(0,t0,dt)):
     # get aperture extents
-    x, ind_start, ind_end = aperture_extent(ti, min(h,ti*c), theta_sq, theta_beam, dx=dx)
+    x, ind_start, ind_end = sar_extent(ti, min(h,ti*c), theta_sq, theta_beam, dx=dx)
 
     # now calculate the reference function placed consistently in the oversized array
-    r = SAR_aperture_raybend(ti, min(h,ti*c), x, theta_sq)
+    r = sar_raybend(ti, min(h,ti*c), x, theta_sq)
     C_ref = matched_filter(r2p(r))
 
     C_ref_all[si,ind_start-ind_start_max:ind_end-ind_start_max+1] = C_ref

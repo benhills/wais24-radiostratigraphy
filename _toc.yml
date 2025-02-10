@@ -5,7 +5,6 @@ format: jb-book
 root: header
 chapters:
 - file: focusing-conventional
-- file: focusing-squinted
 - file: focusing-sounder
 - file: multisquint
 - file: bibliography
