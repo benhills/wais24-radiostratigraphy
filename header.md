@@ -6,17 +6,19 @@ $^1$Department of Geophysics, Colorado School of Mines, CO, USA
 <br>
 $^2$Department of Geophysics, Stanford University, CA, USA
 <br>
-$^3$Goddard Space Flight Center, National Aeronautics and Space Administration, DC, USA
+$^3$Earth System Science Interdisciplinary Center, University of Maryland, College Park, MD, USA
 <br>
-$^4$Department of Earth and Environmental Sciences, Ludwig-Maximilians-Universitat Munchen, Munich, Germany
+$^4$Goddard Space Flight Center, National Aeronautics and Space Administration, Greenbelt, MD, USA
 <br>
-$^5$Department of Geology, Amherst College, MA, USA
+$^5$Department of Earth and Environmental Sciences, Ludwig-Maximilians-Universitat Munchen, Munich, Germany
 <br>
-$^6$European Space Agency, Italy
+$^6$Department of Geology, Amherst College, MA, USA
 <br>
-$^7$Center for Remote Sensing and Integrated Systems, University of Kansas, Lawrence, KS, USA
+$^7$European Space Agency, Italy
 <br>
-$^8$Department of Statistics, University of California Berkeley, CA, USA
+$^8$Center for Remote Sensing and Integrated Systems, University of Kansas, Lawrence, KS, USA
+<br>
+$^9$Department of Statistics, University of California Berkeley, CA, USA
 
 ```{note}
 Below is the original abstract from WAIS Workshop 2024 (see [here](https://www.waisworkshop.org/2024-wais-workshop#Agenda)). The scope of this JupyterBook is slightly different from what was presented, here being more focused on the method development than the specific glaciological setting.
