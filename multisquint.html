@@ -351,7 +351,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-squint-angle-from-doppler-spectra">Ideal squint angle from Doppler spectra</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-a-multisquint-mosaic">Compiling a multisquint mosaic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-a-multi-squinted-mosaic">Compiling a multi-squinted mosaic</a></li>
 </ul>
             </nav>
         </div>
@@ -365,7 +365,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="multi-squinted-sounder-focusing">
 <h1>Multi-squinted sounder focusing<a class="headerlink" href="#multi-squinted-sounder-focusing" title="Permalink to this heading">#</a></h1>
-<p>The most commonly used synthetic aperture radar (SAR) processing algorithms <span id="id1">[]</span> are optimized for targets which are rough at the scale of the radar wavelength, scattering energy in all directions (diffuse), and are therefore observable from the many aspects across the synthetic aperture.
+<p>The most commonly used synthetic aperture radar (SAR) processing algorithms <span id="id1">[<a class="reference internal" href="bibliography.html#id11" title="Open Polar Radar. opr (Version 3.0.1). 2024. URL: https://gitlab.com/openpolarradar/opr/, doi:https://doi.org/10.5281/zenodo.5683959.">OpenPRadar24</a>]</span> are optimized for targets which are rough at the scale of the radar wavelength, scattering energy in all directions (diffuse), and are therefore observable from the many aspects across the synthetic aperture.
 However, englacial targets are commonly smooth relative to the radar wavelength (specular) and some targets such as dipping layers are poorly resolved <span id="id2">[<a class="reference internal" href="bibliography.html#id9" title="Nanna B. Karlsson, David M. Rippin, David G. Vaughan, and Hugh F.J. Corr. The internal layering of Pine Island Glacier, West Antarctica, from airborne radar-sounding data. Annals of Glaciology, 50(51):141–146, 2009. doi:10.3189/s0260305500250660.">KRVC09</a>]</span> <span id="id3">[<a class="reference internal" href="bibliography.html#id10" title="Kate Winter, John Woodward, Neil Ross, Stuart A. Dunning, Robert G. Bingham, Hugh F.J. Corr, and Martin J. Siegert. Airborne radar evidence for tributary flow switching in Institute Ice Stream, West Antarctica: Implications for ice sheet configuration and dynamics. Journal of Geophysical Research: Earth Surface, 120(9):1611–1625, 2015. doi:10.1002/2015JF003518.">WWR+15</a>]</span>
 The radar antennas used for sounding through ice have a small <em>real</em> aperture, meaning that the real beamwidth is large and some portion of the radar wave is directed off nadir <span id="id4">[<a class="reference internal" href="bibliography.html#id4" title="Anton Heister and Rolf Scheiber. Coherent large beamwidth processing of radio-echo sounding data. Cryosphere, 12(9):2969–2979, 2018. doi:10.5194/tc-12-2969-2018.">HS18</a>]</span>.
 It is therefore expected that some amount of radar power should be received even from the dipping specular layers, but that destructive interference within the synthetic aperture can diminish power for those layers <span id="id5">[<a class="reference internal" href="bibliography.html#id8" title="Nicholas Holschuh, Knut Christianson, and Sridhar Anandakrishnan. Power loss in dipping internal reflectors, imaged using ice-penetrating radar. Annals of Glaciology, 55(67):49–56, 2014. doi:10.3189/2014AoG67A005.">HCA14</a>]</span>.
@@ -375,91 +375,56 @@ LOSAR images have better-resolved radiostratigraphy compared to prior data produ
 That is, even though the radar antenna is directed at nadir, the beam width is large enough that small sub apertures can be considered within that beam that themselves are squinted forward or backward.
 As seen in <a class="reference internal" href="#multi-squint-movie"><span class="std std-numref">Fig. 2</span></a>, dipping englacial layers can be resolved more clearly when using a synthetic squint.
 To maximize the signal-to-noise ratio for every englacial target, a local focusing of the image near that target is required.
-<span id="id9">[<a class="reference internal" href="bibliography.html#id11" title="Nanna B. Karlsson, David M. Rippin, Robert G. Bingham, and David G. Vaughan. A 'continuity-index' for assessing ice-sheet dynamics from radar-sounded internal layers. Earth and Planetary Science Letters, 335-336:88–94, 2012. doi:10.1016/j.epsl.2012.04.034.">KRBV12</a>]</span>
-<span id="id10">[<a class="reference internal" href="bibliography.html#id12" title="H. Conway, G. Catania, C. F. Raymond, A. M. Gades, T. A. Scambos, and H. Engelhardt. Switch of flow direction in an antarctic ice stream. Nature, 419(6906):465–467, 2002. doi:10.1038/nature01081.">CCR+02</a>]</span>
-<span id="id11">[<a class="reference internal" href="bibliography.html#id13" title="Martin Siegert, Neil Ross, Hugh Corr, Jonathan Kingslake, and Richard Hindmarsh. Late Holocene ice-flow reconfiguration in the Weddell Sea sector of West Antarctica. Quaternary Science Reviews, 78:98–107, 2013. doi:10.1016/j.quascirev.2013.08.003.">SRC+13</a>]</span>
-Below, we outline how the local squint angle may be chosen based on the Doppler centroid, and finally all squinted focusing compiled together into a single mosaic image.</p>
+Below, we outline how the local squint angle may be chosen based on the measured Doppler spectra and how each of the locally focused pixels could be compiled together into a single mosaic image.</p>
 <figure class="align-default" id="multi-squint-movie">
-<a class="reference internal image-reference" href="figures/multisquint-movie.gif"><img alt="figures/multisquint-movie.gif" src="figures/multisquint-movie.gif" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/multisquint-movie.gif"><img alt="_images/multisquint-movie.gif" src="_images/multisquint-movie.gif" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Image processed across a range of squint angles following the methods given in <span class="xref std std-doc">background</span>.</span><a class="headerlink" href="#multi-squint-movie" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Image processed across a range of squint angles following the methods given in <a class="reference internal" href="focusing-sounder.html"><span class="doc">Radar sounder focusing</span></a>.</span><a class="headerlink" href="#multi-squint-movie" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="ideal-squint-angle-from-doppler-spectra">
 <h2>Ideal squint angle from Doppler spectra<a class="headerlink" href="#ideal-squint-angle-from-doppler-spectra" title="Permalink to this heading">#</a></h2>
-<p>Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
-in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
-scelerisque et lacus et eleifend. Aenean mattis ligula at bibendum pellentesque. Pellentesque facilisis velit100
-velit, et elementum quam faucibus sed. Praesent sodales lorem ac pellentesque dapibus. Morbi rutrum est101
-vel interdum tincidunt. Proin ac nulla libero. Proin metus arcu, commodo tempor vestibulum vel, posuere102
-eget diam. Sed scelerisque lorem sed libero tristique, eget aliquet augue fermentum. Aenean malesuada103
-justo lectus, ut ornare nisi viverra at. Phasellus eget lectus sem. Duis faucibus diam justo, mollis rhoncus104
-eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.105</p>
-<p><span class="math notranslate nohighlight">\(\eta\)</span> is ‘azimuth time’</p>
-<div class="math notranslate nohighlight">
-\[
-f_{\eta_c} = -\frac{2}{\lambda} \left . \frac{d R(\eta)}{d \eta } \right | _{\eta=\eta_c}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-f_{\eta_c} = \frac{2 V_r \sin \theta}{\lambda}
-\]</div>
-<p>Doppler frequency shift is related to the derivative of phase with respect to slow time
-$<span class="math notranslate nohighlight">\(
-\Delta f = \frac{1}{2\pi}\frac{\partial \phi}{\partial \tau} = -\frac{2}{\lambda} \frac{\partial r}{\partial \tau}
-\)</span><span class="math notranslate nohighlight">\(
-or the Doppler wavenumber related to the along-track position
-\)</span><span class="math notranslate nohighlight">\(
-\nu = -\frac{2}{\lambda} \frac{\partial r}{\partial x}
-\)</span><span class="math notranslate nohighlight">\(
-taking the derivative
-\)</span><span class="math notranslate nohighlight">\(
-\nu = -\frac{2}{\lambda} \frac{x}{r}
-\)</span><span class="math notranslate nohighlight">\(
-which is approximately
-\)</span><span class="math notranslate nohighlight">\(
-f_{\eta_c} = \frac{2}{\lambda} \sin \theta
-\)</span>$</p>
-<div class="math notranslate nohighlight" id="equation-doppler-squint">
-<span class="eqno">(10)<a class="headerlink" href="#equation-doppler-squint" title="Permalink to this equation">#</a></span>\[\frac{\partial \phi}{\partial x}\]</div>
-<div class="math notranslate nohighlight">
-\[
-\frac{\partial \phi}{\partial x}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\frac{\partial r}{\partial x}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\tan\theta = \frac{x-x_0}{h+d/n}
-\]</div>
-<p>The point at which this</p>
+<p>The optimal squint anglel for a given pixel in the image could be selected in multiple ways.
+For example, Castelletti et al. <span id="id9">[<a class="reference internal" href="bibliography.html#id5" title="Davide Castelletti, Dustin M Schroeder, Elisa Mantelli, and Andrew Hilger. Layer optimized SAR processing and slope estimation in radar sounder data. Journal of Glaciology, 65(254):983–988, 2019. doi:10.1017/jog.2019.72.">CSMH19</a>]</span> iterate through all plausible englacial layer dips and choose that angle which maximizes the coherently stacked power.
+Another approach, which we take here, is to use the frequency information in the along-track direction.
+Based on the Doppler effect, frequency content should increase if the instrument platform is moving toward the target (up-dipping layers or forward squinted) and should decrease if moving away.
+Take some sample from the pulse-compressed image (<a class="reference internal" href="#doppler-spectra"><span class="std std-numref">Fig. 3</span></a>), the Doppler frequencies are calculated by Fourier transform in the along-track dimension for a given range bin.</p>
+<figure class="align-default" id="doppler-spectra">
+<a class="reference internal image-reference" href="_images/doppler-spectra.png"><img alt="_images/doppler-spectra.png" src="_images/doppler-spectra.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Pulse compressed radar sounding image (left) and associated Doppler spectra (right) for each range bin at the selected along-track location (vertical line at ~3 km).</span><a class="headerlink" href="#doppler-spectra" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To calculate the optimal squint angle from Doppler frequencies, we first choose that frequency with the most power, the “Doppler centroid”, <span class="math notranslate nohighlight">\(f_\mathrm{dc}\)</span>, which is proportional to the expected phase gradient</p>
+<div class="math notranslate nohighlight" id="equation-fdc-phase-gradient">
+<span class="eqno">(10)<a class="headerlink" href="#equation-fdc-phase-gradient" title="Permalink to this equation">#</a></span>\[f_{\mathrm{dc}} = \frac{1}{2\pi}\frac{\partial \phi}{\partial \tau}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is the “slow” time between traces. That time is related to along-track distance through the platform velocity, and phase is related to range (as in <a class="reference internal" href="focusing-conventional.html"><span class="doc">Conventional radar focusing</span></a>),</p>
+<div class="math notranslate nohighlight" id="equation-fdc-range-gradient">
+<span class="eqno">(11)<a class="headerlink" href="#equation-fdc-range-gradient" title="Permalink to this equation">#</a></span>\[f_{\mathrm{dc}} = \frac{2 v f_\mathrm{c}}{c}\frac{\partial r}{\partial x}\]</div>
+<p>Finally, the change in range with along-track position is approximately <span class="math notranslate nohighlight">\(n\sin(\theta)\)</span> (although an exact solution is possible as in equation <a class="reference internal" href="focusing-sounder.html#equation-quartic">(9)</a>, so</p>
+<div class="math notranslate nohighlight" id="equation-fdc-squint">
+<span class="eqno">(12)<a class="headerlink" href="#equation-fdc-squint" title="Permalink to this equation">#</a></span>\[f_{\mathrm{dc}} = \frac{2 v f_\mathrm{c}}{c} n\sin(\theta)\]</div>
+<p>and solving for the squint angle</p>
+<div class="math notranslate nohighlight" id="equation-squint-fdc">
+<span class="eqno">(13)<a class="headerlink" href="#equation-squint-fdc" title="Permalink to this equation">#</a></span>\[\theta = \sin^{-1} \left ( \frac{c f_{\mathrm{dc}}}{2 n v f_\mathrm{c}} \right )\]</div>
 </section>
-<section id="compiling-a-multisquint-mosaic">
-<h2>Compiling a multisquint mosaic<a class="headerlink" href="#compiling-a-multisquint-mosaic" title="Permalink to this heading">#</a></h2>
-<p>Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
-in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
-scelerisque et lacus et eleifend. Aenean mattis ligula at bibendum pellentesque. Pellentesque facilisis velit100
-velit, et elementum quam faucibus sed. Praesent sodales lorem ac pellentesque dapibus. Morbi rutrum est101
-vel interdum tincidunt. Proin ac nulla libero. Proin metus arcu, commodo tempor vestibulum vel, posuere102
-eget diam. Sed scelerisque lorem sed libero tristique, eget aliquet augue fermentum. Aenean malesuada103
-justo lectus, ut ornare nisi viverra at. Phasellus eget lectus sem. Duis faucibus diam justo, mollis rhoncus104
-eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.105</p>
+<section id="compiling-a-multi-squinted-mosaic">
+<h2>Compiling a multi-squinted mosaic<a class="headerlink" href="#compiling-a-multi-squinted-mosaic" title="Permalink to this heading">#</a></h2>
+<p>To maximize the signal-to-noise ratio for all targets in a single image, a mosaic across the many squint angles must be created.
+Following <a class="reference internal" href="#multi-squint-flowchart"><span class="std std-numref">Fig. 4</span></a>, we propose an algorithm which does local focusing for every pixel in the image.
+After the standard pre-processing and range compression, the algorithm iterates through all traces and all range bins for every trace, taking these steps for each:</p>
+<ol class="arabic simple">
+<li><p>find the local squint angle from measured Doppler spectra (as above).</p></li>
+<li><p>define the aperture extent based on the squint angle, range bin, and synthetic beam width (smaller than the real beam).</p></li>
+<li><p>range migration (not discussed here but an important step especially for large squint angles).</p></li>
+<li><p>along-track compression using the matched filter as described in <a class="reference internal" href="focusing-sounder.html"><span class="doc">Radar sounder focusing</span></a>.</p></li>
+</ol>
 <figure class="align-default" id="multi-squint-flowchart">
 <a class="reference internal image-reference" href="_images/squint-flowchart.png"><img alt="_images/squint-flowchart.png" src="_images/squint-flowchart.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Algorithm design</span><a class="headerlink" href="#multi-squint-flowchart" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Plausible algorithm design for multi-squinted synthetic aperture radar focusing.</span><a class="headerlink" href="#multi-squint-flowchart" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Integer justo tortor, auctor id mi et, hendrerit mollis est. Cras laoreet diam augue, eu semper ipsum luctus98
-in. Phasellus lacinia enim libero, sed gravida tortor ultricies ut. Cras consequat at tortor et egestas. Etiam99
-scelerisque et lacus et eleifend. Aenean mattis ligula at bibendum pellentesque. Pellentesque facilisis velit100
-velit, et elementum quam faucibus sed. Praesent sodales lorem ac pellentesque dapibus. Morbi rutrum est101
-vel interdum tincidunt. Proin ac nulla libero. Proin metus arcu, commodo tempor vestibulum vel, posuere102
-eget diam. Sed scelerisque lorem sed libero tristique, eget aliquet augue fermentum. Aenean malesuada103
-justo lectus, ut ornare nisi viverra at. Phasellus eget lectus sem. Duis faucibus diam justo, mollis rhoncus104
-eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.105</p>
 </section>
 </section>
 
@@ -531,7 +496,7 @@ eros tincidunt nec. Sed ultricies nisl urna, a lacinia velit commodo eget.105</p
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideal-squint-angle-from-doppler-spectra">Ideal squint angle from Doppler spectra</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-a-multisquint-mosaic">Compiling a multisquint mosaic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-a-multi-squinted-mosaic">Compiling a multi-squinted mosaic</a></li>
 </ul>
   </nav></div>
 
