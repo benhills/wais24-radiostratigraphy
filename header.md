@@ -1,6 +1,6 @@
 # Abstract
 
-Benjamin Hills$^1$, Elliana Abrahams$^2$, Hannah Verboncoeur$^1$, Tasha Snow$^3$, Elisa Mantelli$^4$, Nicholas Holschuh$^5$, Davide Castelletti$^6$, John Paden$^7$, Fernando Perez$^8$, Dustin Schroeder$^2$, Matthew Siegfried$^1$
+Benjamin Hills$^1$, Ellianna Abrahams$^2$, Hannah Verboncoeur$^1$, Tasha Snow$^3$, Elisa Mantelli$^4$, Nicholas Holschuh$^5$, Davide Castelletti$^6$, John Paden$^7$, Fernando Perez$^8$, Dustin Schroeder$^2$, Matthew Siegfried$^1$
 
 $^1$Department of Geophysics, Colorado School of Mines, CO, USA
 <br>
