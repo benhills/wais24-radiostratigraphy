@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bhills/anaconda3/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/bhills/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Range matched filter in air
+
+plt.figure()
+ax1 = plt.subplot(211)
+ax2 = plt.subplot(212)
+
+# constants
+c = 3e8
+fc = 100e6
+ω = 2.*np.pi*fc
+
+# known geometry
+x = np.linspace(-100,100,10000)
+r0=1000.
+
+# calculate matched filter for no squint
+θ_sq = 0.*np.pi/180.
+r,ϕ,C = get_matched_filter(r0,θ_sq,x)
+ax1.plot(x,r)
+ax2.plot(x,C)
+
+# calculate matched filter for no squint
+θ_sq = 1.*np.pi/180.
+r,ϕ,C = get_matched_filter(r0,θ_sq,x)
+ax1.plot(x,r)
+ax2.plot(x,C)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[5], line 18[0m
+[1;32m     16[0m [38;5;66;03m# calculate matched filter for no squint[39;00m
+[1;32m     17[0m θ_sq [38;5;241m=[39m [38;5;241m0.[39m[38;5;241m*[39mnp[38;5;241m.[39mpi[38;5;241m/[39m[38;5;241m180.[39m
+[0;32m---> 18[0m r,ϕ,C [38;5;241m=[39m get_matched_filter(r0,θ_sq,x)
+[1;32m     19[0m ax1[38;5;241m.[39mplot(x,r)
+[1;32m     20[0m ax2[38;5;241m.[39mplot(x,C)
+
+[0;31mNameError[0m: name 'get_matched_filter' is not defined
+
